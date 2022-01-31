@@ -1,0 +1,21 @@
+site_name : Fahmi Training
+site_url: https://formation.ghamacha.com
+repo_url: https://github.com/fghamacha
+site_author: Fahmi GHAMACHA
+copyright: Copyright Fahmi GHAMACHA 2022
+nav :
+  - Docker: index.md
+  - Docker Compose: Docker-compose.md
+  - Docker Swarm : Docker Swarm.md
+theme:
+  name: mkdocs
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/fahmighamacha
+      name: Find me on LinkedIn
