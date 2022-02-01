@@ -1,2 +1,2 @@
-## Docker Labs - Kubernetes
+# Vagrant Labs 
 ![Comming Soon](img/comingsoon.png)

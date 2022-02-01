@@ -6,10 +6,14 @@ copyright: Copyright Fahmi GHAMACHA 2022
 nav :
   - Docker: index.md
   - Docker-Lab: 
-      - Docker Intro : index.md
+      - Docker Intro : Docker.md
       - Docker Compose: Docker-compose.md
       - Docker Swarm : Docker Swarm.md
-  - Kubernetes : Kubernetes.md
+  - Kubernetes: Kubernetes.md
+  - Infrastructure as a Code: 
+      - Terraform: Terraform.md
+      - Vagrant: Vagrant.md
+      - Ansible: Ansible.md
 theme:
   name: mkdocs
   language: en

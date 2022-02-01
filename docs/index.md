@@ -16,7 +16,7 @@ According to [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), Dock
 #### For Ubuntu
 #### 1. Set up the repository (Docker CE):
 
-* Install packages to allow apt to use a repository over HTTPS.
+- Install packages to allow apt to use a repository over HTTPS.
 ```
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
