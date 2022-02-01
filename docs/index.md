@@ -117,3 +117,110 @@ sudo docker run -dt --name docker2 ubuntu:16.04
     -   t (tty): Allocate a pseudo-TTY  
     Use the following combination of keys instead: CTRL + P + Q. This command allows to leave the container without turning it off. If you use the exit command again within the container, it will shut down
 
+#### Build Docker Images
+-   Write a Dockerfile (Openssh and Apache2)
+```
+$ echo \ "FROM ubuntu:16.04
+#Install Openssh Server, Apache2 and git 
+RUN apt-get update && apt-get install -y openssh-server git apache2 vim
+#Configure ssh
+RUN mkdir /var/run/sshd
+RUN echo 'root:root' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+#Expose SSH and HTTP ports
+EXPOSE 22 80">>Dockerfile
+```
+
+-   Build image
+```
+sudo docker build -t myimage . 
+```
+```
+Sending build context to Docker daemon  22.96MB 
+Step 1/6 : FROM ubuntu:16.04 
+ ---> 4a689991aa24 
+Step 2/6 : RUN apt-get update && apt-get install -y openssh-server git apache2 python vim 
+Removing intermediate container 02e7b71e66bf 
+ ---> a02abb273ca1 
+Step 3/6 : RUN mkdir /var/run/sshd 
+ ---> Running in 7debc3bd848a 
+^[[ARemoving intermediate container 7debc3bd848a 
+ ---> 43701b93496d 
+Step 4/6 : RUN echo 'root:root' | chpasswd 
+ ---> Running in 4958eb98f69b 
+Removing intermediate container 4958eb98f69b 
+ ---> 86051bdd6380 
+Step 5/6 : RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config 
+ ---> Running in df9955a1969b 
+Removing intermediate container df9955a1969b 
+ ---> ce0c596cd18b 
+Step 6/6 : EXPOSE 22 80 
+ ---> Running in 1ef65145106a 
+Removing intermediate container 1ef65145106a 
+ ---> 4fdd24f1b727 
+Successfully built 4fdd24f1b727 
+Successfully tagged myimage:latest 
+```
+List all local docker images
+```
+sudo docker images
+``` 
+Build new version
+```
+sudo docker build -t="myimage:v1.0" . 
+sudo docker images 
+```
+---
+## Lab 3 : Manage Containers (Life Cycle, SSH, Port Forwarding)
+---
+### Create One container
+remove all existing containers
+```
+sudo docker rm -f $(sudo docker ps -a -q) 
+```
+create a container with the new image
+```
+sudo docker run -it --name docker1 myimage 
+```
+### Create 2 containers with port forwarding:
+There are two methods for assigning network ports to the Docker host:
+
+- Docker can randomly assign a port (in the range 32768-61000) from the Docker host that it will map to the port 80 of the container.
+- It is also possible to specify a port (for ex. 81 and 82)
+
+````
+$ sudo docker run -dt -p 81:80 --name docker1 myimage
+$ sudo docker run -dt -p 82:80 --name docker2 myimage
+$ sudo docker ps
+$ sudo docker info
+````
+#### Access with SSH:
+Start SSH Daemon
+````
+sudo  docker exec -d docker1 /etc/init.d/ssh start 
+sudo  docker exec -d docker2 /etc/init.d/ssh start # container's IPv4
+````
+#### Start Apache2 Server:
+
+#### Delete all containers (runining and stoped)
+
+#### Running web application:
+
+### Use Docker Commit to create images
+
+---
+## Lab 4 : Link containers (Mysql, Wordpress and Phpmyadmin)
+---
+
+---
+## Lab 6 : Manage Network
+
+---
+
+---
+## Lab 7 : Docker Hub
+---
+
+---
+## Lab 8 : Manage Docker Registry
+---

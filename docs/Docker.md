@@ -107,3 +107,4 @@ Note:: -d (detach): Run container in background and print container ID
 -i (interactive): Keep STDIN open even if not attached 
 -t (tty): Allocate a pseudo-TTY  
 Use the following combination of keys instead: CTRL + P + Q. This command allows to leave the container without turning it off. If you use the exit command again within the container, it will shut down
+
