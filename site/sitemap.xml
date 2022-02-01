@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://formation.ghamacha.com/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://formation.ghamacha.com/Docker%20Swarm/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://formation.ghamacha.com/Docker-compose/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://formation.ghamacha.com/Docker/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://formation.ghamacha.com/Kubernetes/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
