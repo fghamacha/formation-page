@@ -105,6 +105,26 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#lab-3-manage-containers-life-cycle-ssh-port-forwarding" class="nav-link">Lab 3 : Manage Containers (Life Cycle, SSH, Port Forwarding)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lab-4-link-containers-mysql-wordpress-and-phpmyadmin" class="nav-link">Lab 4 : Link containers (Mysql, Wordpress and Phpmyadmin)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lab-6-manage-network" class="nav-link">Lab 6 : Manage Network</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lab-7-docker-hub" class="nav-link">Lab 7 : Docker Hub</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lab-8-manage-docker-registry" class="nav-link">Lab 8 : Manage Docker Registry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -223,7 +243,102 @@ List all local docker images:
 <li>t (tty): Allocate a pseudo-TTY<br />
 Use the following combination of keys instead: CTRL + P + Q. This command allows to leave the container without turning it off. If you use the exit command again within the container, it will shut down</li>
 </ul>
-</div></div>
+</div>
+<h4 id="build-docker-images">Build Docker Images</h4>
+<ul>
+<li>
+<p>Write a Dockerfile (Openssh and Apache2)
+<div class="highlight"><pre><span></span><code>$ echo \ &quot;FROM ubuntu:16.04
+#Install Openssh Server, Apache2 and git 
+RUN apt-get update &amp;&amp; apt-get install -y openssh-server git apache2 vim
+#Configure ssh
+RUN mkdir /var/run/sshd
+RUN echo &#39;root:root&#39; | chpasswd
+RUN sed -i &#39;s/PermitRootLogin prohibit-password/PermitRootLogin yes/&#39; /etc/ssh/sshd_config
+#Expose SSH and HTTP ports
+EXPOSE 22 80&quot;&gt;&gt;Dockerfile
+</code></pre></div></p>
+</li>
+<li>
+<p>Build image
+<div class="highlight"><pre><span></span><code>sudo docker build -t myimage . 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Sending build context to Docker daemon  22.96MB 
+Step 1/6 : FROM ubuntu:16.04 
+ ---&gt; 4a689991aa24 
+Step 2/6 : RUN apt-get update &amp;&amp; apt-get install -y openssh-server git apache2 python vim 
+Removing intermediate container 02e7b71e66bf 
+ ---&gt; a02abb273ca1 
+Step 3/6 : RUN mkdir /var/run/sshd 
+ ---&gt; Running in 7debc3bd848a 
+^[[ARemoving intermediate container 7debc3bd848a 
+ ---&gt; 43701b93496d 
+Step 4/6 : RUN echo &#39;root:root&#39; | chpasswd 
+ ---&gt; Running in 4958eb98f69b 
+Removing intermediate container 4958eb98f69b 
+ ---&gt; 86051bdd6380 
+Step 5/6 : RUN sed -i &#39;s/PermitRootLogin prohibit-password/PermitRootLogin yes/&#39; /etc/ssh/sshd_config 
+ ---&gt; Running in df9955a1969b 
+Removing intermediate container df9955a1969b 
+ ---&gt; ce0c596cd18b 
+Step 6/6 : EXPOSE 22 80 
+ ---&gt; Running in 1ef65145106a 
+Removing intermediate container 1ef65145106a 
+ ---&gt; 4fdd24f1b727 
+Successfully built 4fdd24f1b727 
+Successfully tagged myimage:latest 
+</code></pre></div>
+List all local docker images
+<div class="highlight"><pre><span></span><code>sudo docker images
+</code></pre></div>
+Build new version
+<div class="highlight"><pre><span></span><code>sudo docker build -t=&quot;myimage:v1.0&quot; . 
+sudo docker images 
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="lab-3-manage-containers-life-cycle-ssh-port-forwarding">Lab 3 : Manage Containers (Life Cycle, SSH, Port Forwarding)</h2>
+<hr />
+<h3 id="create-one-container">Create One container</h3>
+<p>remove all existing containers
+<div class="highlight"><pre><span></span><code>sudo docker rm -f $(sudo docker ps -a -q) 
+</code></pre></div>
+create a container with the new image
+<div class="highlight"><pre><span></span><code>sudo docker run -it --name docker1 myimage 
+</code></pre></div></p>
+<h3 id="create-2-containers-with-port-forwarding">Create 2 containers with port forwarding:</h3>
+<p>There are two methods for assigning network ports to the Docker host:</p>
+<ul>
+<li>Docker can randomly assign a port (in the range 32768-61000) from the Docker host that it will map to the port 80 of the container.</li>
+<li>It is also possible to specify a port (for ex. 81 and 82)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo docker run -dt -p 81:80 --name docker1 myimage
+$ sudo docker run -dt -p 82:80 --name docker2 myimage
+$ sudo docker ps
+$ sudo docker info
+</code></pre></div>
+<h4 id="access-with-ssh">Access with SSH:</h4>
+<p>Start SSH Daemon
+<div class="highlight"><pre><span></span><code>sudo  docker exec -d docker1 /etc/init.d/ssh start 
+sudo  docker exec -d docker2 /etc/init.d/ssh start # container&#39;s IPv4
+</code></pre></div></p>
+<h4 id="start-apache2-server">Start Apache2 Server:</h4>
+<h4 id="delete-all-containers-runining-and-stoped">Delete all containers (runining and stoped)</h4>
+<h4 id="running-web-application">Running web application:</h4>
+<h3 id="use-docker-commit-to-create-images">Use Docker Commit to create images</h3>
+<hr />
+<h2 id="lab-4-link-containers-mysql-wordpress-and-phpmyadmin">Lab 4 : Link containers (Mysql, Wordpress and Phpmyadmin)</h2>
+<hr />
+<hr />
+<h2 id="lab-6-manage-network">Lab 6 : Manage Network</h2>
+<hr />
+<hr />
+<h2 id="lab-7-docker-hub">Lab 7 : Docker Hub</h2>
+<hr />
+<hr />
+<h2 id="lab-8-manage-docker-registry">Lab 8 : Manage Docker Registry</h2>
+<hr /></div>
             </div>
         </div>
 
