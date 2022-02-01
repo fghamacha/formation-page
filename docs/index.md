@@ -21,12 +21,12 @@ According to [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), Dock
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 ``` 
-* Add Docker’s official GPG key:
+- Add Docker’s official GPG key:
 
 ```sh
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
-* Set up the stable repository (amd64):
+- Set up the stable repository (amd64):
 ```sh
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
@@ -39,6 +39,14 @@ Executing the Docker Command Without Sudo (Optional):
 ```
 sudo usermod -aG docker $(whoami)
 ```
+!!! Note 
+    You have to Log out and log back in so that your group membership is re-evaluated.
+
+Configure Docker to start on boot
+````
+ sudo systemctl enable docker.service
+ sudo systemctl enable containerd.service
+````
 Using the Docker Command
 
 ```
@@ -78,7 +86,9 @@ sudo chmod 777 /var/run/docker.sock
     1. Image pull : loads an archive of files, as a base layer
     2. Container commit : create new couche (+ image) from current container
     3. Image build : construction form a Dockerfile (commands list)
-### Working with Docker Images
+
+### Working with Docker Images : 
+
 
 Search for images available on Docker Hub:
 ```
@@ -88,26 +98,36 @@ Download ubuntu image to your computer
 ```
 sudo docker pull ubuntu 
 Using default tag: latest
+latest: Pulling from library/ubuntu
+ea362f368469: Pull complete
+Digest: sha256:b5a61709a9a44284d88fb12e5c48db0409cfad5b69d4ff8224077c57302df9cf
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
 ```
 List all local docker images: 
 ```
 sudo docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       latest    d13c942271d6   3 weeks ago   72.8MB
 ```
-Pull Ubuntu 16.04 image
+Pull Ubuntu 20.04 image
 ```
-sudo docker pull ubuntu:16.04 
+sudo docker pull ubuntu:20.04 
 ```
 List all local docker images: 
 ```
 sudo docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       20.04     d13c942271d6   3 weeks ago   72.8MB
+ubuntu       latest    d13c942271d6   3 weeks ago   72.8MB
 ```
 - Run a new container docker1
 ```
-sudo docker run -it --name docker1 ubuntu:16.04 
+sudo docker run -it --name docker1 ubuntu:20.04 
 ```
 - Run a new container docker2
 ```
-sudo docker run -dt --name docker2 ubuntu:16.04 
+sudo docker run -dt --name docker2 ubuntu:20.04 
 ```
 
 !!! note
@@ -120,8 +140,9 @@ sudo docker run -dt --name docker2 ubuntu:16.04
 #### Build Docker Images
 -   Write a Dockerfile (Openssh and Apache2)
 ```
-$ echo \ "FROM ubuntu:16.04
+$ echo \ "FROM ubuntu:20.04
 #Install Openssh Server, Apache2 and git 
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y openssh-server git apache2 vim
 #Configure ssh
 RUN mkdir /var/run/sshd
@@ -133,11 +154,11 @@ EXPOSE 22 80">>Dockerfile
 
 -   Build image
 ```
-sudo docker build -t myimage . 
+sudo docker build -t myimage .
 ```
 ```
 Sending build context to Docker daemon  22.96MB 
-Step 1/6 : FROM ubuntu:16.04 
+Step 1/6 : FROM ubuntu:20.04 
  ---> 4a689991aa24 
 Step 2/6 : RUN apt-get update && apt-get install -y openssh-server git apache2 python vim 
 Removing intermediate container 02e7b71e66bf 
@@ -164,23 +185,88 @@ Successfully tagged myimage:latest
 List all local docker images
 ```
 sudo docker images
+
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+myimage      latest    d83e3fd00475   40 seconds ago   365MB
+ubuntu       20.04     d13c942271d6   3 weeks ago      72.8MB
+ubuntu       latest    d13c942271d6   3 weeks ago      72.8MB
 ``` 
-Build new version
+Build new version 'v1.0'
 ```
 sudo docker build -t="myimage:v1.0" . 
+Sending build context to Docker daemon  2.048kB
+Step 1/7 : FROM ubuntu:20.04
+ ---> d13c942271d6
+Step 2/7 : ARG DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 1382eae51bd9
+Step 3/7 : RUN apt-get update && apt-get install -y openssh-server git apache2 vim
+ ---> Using cache
+ ---> b46e2d48bebb
+Step 4/7 : RUN mkdir /var/run/sshd
+ ---> Using cache
+ ---> c5ac495fe893
+Step 5/7 : RUN echo 'root:root' | chpasswd
+ ---> Using cache
+ ---> aed6d12fa09d
+Step 6/7 : RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+ ---> Using cache
+ ---> 89c476d90de8
+Step 7/7 : EXPOSE 22 80
+ ---> Using cache
+ ---> d83e3fd00475
+Successfully built d83e3fd00475
+Successfully tagged myimage:v1.0
+```
+List all local docker images
+``` 
 sudo docker images 
+
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+myimage      latest    d83e3fd00475   6 minutes ago   365MB
+myimage      v1.0      d83e3fd00475   6 minutes ago   365MB
+ubuntu       20.04     d13c942271d6   3 weeks ago     72.8MB
+ubuntu       latest    d13c942271d6   3 weeks ago     72.8MB
+
 ```
 ---
 ## Lab 3 : Manage Containers (Life Cycle, SSH, Port Forwarding)
 ---
 ### Create One container
-remove all existing containers
+- Remove all existing containers
 ```
 sudo docker rm -f $(sudo docker ps -a -q) 
 ```
-create a container with the new image
+Create a container with the new image
 ```
-sudo docker run -it --name docker1 myimage 
+sudo docker run -it --name docker1 myimage
+root@8cdc395b34ca:/# exit
+exit
+docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+docker start docker1
+docker1
+docker exec -d docker1 ls
+docker attach docker1
+root@8cdc395b34ca:/#
+root@8cdc395b34ca:/# exit
+exit
+sudo docker run -dt --name docker2 myimage bin/sh  -c "while true; do echo hello world; sleep 1; done"
+7f192eb6f5bf7079843b30e1f7d3b2e7b4f8f12bb7c48a63101760e814633c07
+# Display Docker2 logs
+sudo docker logs docker2
+hello world
+hello world
+hello world
+hello world
+docker top docker2
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                18654               18630               0                   17:50               pts/0               00:00:00            bin/sh -c while true; do echo hello world; sleep 1; done
+root                18908               18654               0                   17:52               pts/0               00:00:00            sleep 1
+# Stop the VMs
+sudo docker stop docker1 docker2
+# Delete the VMs
+sudo docker rm docker1 docker2
 ```
 ### Create 2 containers with port forwarding:
 There are two methods for assigning network ports to the Docker host:
@@ -189,18 +275,42 @@ There are two methods for assigning network ports to the Docker host:
 - It is also possible to specify a port (for ex. 81 and 82)
 
 ````
-$ sudo docker run -dt -p 81:80 --name docker1 myimage
-$ sudo docker run -dt -p 82:80 --name docker2 myimage
-$ sudo docker ps
-$ sudo docker info
+# Delete all containers
+sudo docker rm -f $(sudo docker ps -a -q)
+# Create 2 new containers
+sudo docker run -dt -p 81:80 --name docker1 myimage
+sudo docker run -dt -p 82:80 --name docker2 myimage
+sudo docker ps
+sudo docker info
 ````
 #### Access with SSH:
 Start SSH Daemon
 ````
-sudo  docker exec -d docker1 /etc/init.d/ssh start 
-sudo  docker exec -d docker2 /etc/init.d/ssh start # container's IPv4
+sudo docker exec -d docker1 /etc/init.d/ssh start 
+sudo docker exec -d docker2 /etc/init.d/ssh start
+````
+- Check IP Address of containers
+````
+sudo  docker inspect docker1 
+# get only the Ipv4 Adress
+sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' docker1 172.17.0.2
+172.17.0.2
+ssh root@172.17.0.2
+# You can change the root password by running the following docker command:
+docker exec -itu 0 docker1 passwd
+
 ````
 #### Start Apache2 Server:
+- Start Apache2 server
+
+```
+sudo docker exec -d docker1 /etc/init.d/apache2 start 
+sudo docker exec -d docker2 /etc/init.d/apache2 start
+```
+###### -  On browser try to connect : http://localhost:80, http://localhost:81
+
+````
+````
 
 #### Delete all containers (runining and stoped)
 

@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         <meta name="author" content="Fahmi GHAMACHA">
         <link rel="canonical" href="https://devos.ghamacha.com/">
         <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Docker Intro - Fahmi Training</title>
+        <title>Fahmi Training</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
@@ -20,7 +20,7 @@
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
+    <body class="homepage">
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href=".">Fahmi Training</a>
@@ -33,15 +33,15 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
+                            <li class="navitem active">
                                 <a href="." class="nav-link">Docker</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Docker-Lab <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="." class="dropdown-item active">Docker Intro</a>
+    <a href="Docker/" class="dropdown-item">Docker Intro</a>
 </li>
                                     
 <li>
@@ -56,6 +56,23 @@
                             <li class="navitem">
                                 <a href="Kubernetes/" class="nav-link">Kubernetes</a>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Infrastructure as a Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="Terraform/" class="dropdown-item">Terraform</a>
+</li>
+                                    
+<li>
+    <a href="Vagrant/" class="dropdown-item">Vagrant</a>
+</li>
+                                    
+<li>
+    <a href="Ansible/" class="dropdown-item">Ansible</a>
+</li>
+                                </ul>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav ml-auto">
@@ -65,12 +82,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="." class="nav-link">
+                                <a rel="prev" class="nav-link disabled">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="Docker-compose/" class="nav-link">
+                                <a rel="next" href="Docker/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -417,3 +434,8 @@ sudo  docker exec -d docker2 /etc/init.d/ssh start # container&#39;s IPv4
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.2.3
+Build Date UTC : 2022-02-01 15:47:12.240262+00:00
+-->
