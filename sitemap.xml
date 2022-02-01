@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://devos.ghamacha.com/Ansible/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://devos.ghamacha.com/Docker%20Swarm/</loc>
          <lastmod>2022-02-01</lastmod>
          <changefreq>daily</changefreq>
@@ -22,6 +27,16 @@
     </url>
     <url>
          <loc>https://devos.ghamacha.com/Kubernetes/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devos.ghamacha.com/Terraform/</loc>
+         <lastmod>2022-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devos.ghamacha.com/Vagrant/</loc>
          <lastmod>2022-02-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
