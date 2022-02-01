@@ -1,8 +1,6 @@
 # Docker Lab - Intro
 
----
 ##  Lab 1 : Installation
----
 
 According to [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), Docker Engine can be installed in different ways, depending on our needs:
 -   Most users set up Docker’s repositories and install from them, for ease of installation and upgrade tasks. This is the recommended approach.
@@ -61,13 +59,9 @@ sudo usermod -aG docker $USER
 sudo chmod 777 /var/run/docker.sock
 ```
 ###  Windows 10 / 11
+https://docs.docker.com/desktop/windows/install/ 
 
-- https://docs.docker.com/desktop/windows/install/ 
-
----
 ## Lab 2: Build and Manager images (Dockerfile)
----
-
 - Docker offers two types of images:
     - OS images (ubuntu, debian, etc)
     - Dockerized Services /Apps Images (http, nodejs, mongodb, etc)
@@ -109,11 +103,7 @@ sudo docker run -it --name docker1 ubuntu:16.04
 ```
 sudo docker run -dt --name docker2 ubuntu:16.04 
 ```
-
-!!! note
-
-    -   d (detach): Run container in background and print container ID 
-    -   i (interactive): Keep STDIN open even if not attached 
-    -   t (tty): Allocate a pseudo-TTY  
-    Use the following combination of keys instead: CTRL + P + Q. This command allows to leave the container without turning it off. If you use the exit command again within the container, it will shut down
-
+Note:: -d (detach): Run container in background and print container ID 
+-i (interactive): Keep STDIN open even if not attached 
+-t (tty): Allocate a pseudo-TTY  
+Use the following combination of keys instead: CTRL + P + Q. This command allows to leave the container without turning it off. If you use the exit command again within the container, it will shut down
