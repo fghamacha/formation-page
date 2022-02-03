@@ -1,4 +1,4 @@
-# Docker Lab - Intro
+# Docker : First Steps
 
 ---
 ##  Lab 1 : Installation

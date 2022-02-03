@@ -1,21 +1,34 @@
 site_name : Training Fahmi - DevOps
 site_url: https://devops.ghamacha.com
 site_author: Fahmi GHAMACHA
-copyright: Copyright Fahmi GHAMACHA 2022
+
+
 nav :
-  - Docker: index.md
-  - Docker-Lab: 
-      - Docker Intro : ./Docker/Docker.md
-      - Docker Compose: ./Docker/Compose/Docker-compose.md
-      - Docker Swarm : ./Docker/Swarm/Docker Swarm.md
+  - Home: index.md
+  - Docker:
+      - 1. Introduction: ./Docker/History/History.md
+      - 2. First Steps : ./Docker/Docker.md
+      - 3. Docker-compose: ./Docker/Compose/Docker-compose.md
+      - 4. Docker Swarm : ./Docker/Swarm/Docker Swarm.md
   - Kubernetes: ./K8s/Kubernetes.md
+  - Cloud: 
+      - Fondamentaux Azure: ./Cloud/Azure01.md
+      - AWS: ./Cloud/AWS01.md
+      - Google Cloud: ./Cloud/Google.md
   - Infrastructure as a Code: 
       - Terraform: ./Iaac/Terraform.md
       - Vagrant: ./Iaac/Vagrant.md
       - Ansible: ./Iaac/Ansible.md
+
+
 theme:
   name: mkdocs
   language: en
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - shell
+    - bat
   icon:
     admonition:
       note: octicons/tag-16
@@ -33,13 +46,21 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - markdown.extensions.attr_list
+
 extra:
   generator: false
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/fahmighamacha
       name: Find me on LinkedIn
+
+copyright: Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.
+
+plugins:
+    - search
