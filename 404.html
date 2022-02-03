@@ -17,6 +17,9 @@
         <script src="/js/jquery-1.10.2.min.js" defer></script>
         <script src="/js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/shell.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/bat.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -34,27 +37,48 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href="/." class="nav-link">Docker</a>
+                                <a href="/." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Docker-Lab <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Docker <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="/Docker/Docker/" class="dropdown-item">Docker Intro</a>
+    <a href="/Docker/History/History/" class="dropdown-item">1. Introduction</a>
 </li>
                                     
 <li>
-    <a href="/Docker/Compose/Docker-compose/" class="dropdown-item">Docker Compose</a>
+    <a href="/Docker/Docker/" class="dropdown-item">2. First Steps</a>
 </li>
                                     
 <li>
-    <a href="/Docker/Swarm/Docker%20Swarm/" class="dropdown-item">Docker Swarm</a>
+    <a href="/Docker/Compose/Docker-compose/" class="dropdown-item">3. Docker-compose</a>
+</li>
+                                    
+<li>
+    <a href="/Docker/Swarm/Docker%20Swarm/" class="dropdown-item">4. Docker Swarm</a>
 </li>
                                 </ul>
                             </li>
                             <li class="navitem">
                                 <a href="/K8s/Kubernetes/" class="nav-link">Kubernetes</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/Cloud/Azure01/" class="dropdown-item">Fondamentaux Azure</a>
+</li>
+                                    
+<li>
+    <a href="/Cloud/AWS01/" class="dropdown-item">AWS</a>
+</li>
+                                    
+<li>
+    <a href="/Cloud/Google/" class="dropdown-item">Google Cloud</a>
+</li>
+                                </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Infrastructure as a Code <b class="caret"></b></a>
@@ -102,7 +126,7 @@
 
         <footer class="col-md-12">
             <hr>
-                <p>Copyright Fahmi GHAMACHA 2022</p>
+                <p>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.</p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
