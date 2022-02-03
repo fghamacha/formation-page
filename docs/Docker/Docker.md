@@ -307,10 +307,12 @@ docker exec -itu 0 docker1 passwd
 sudo docker exec -d docker1 /etc/init.d/apache2 start 
 sudo docker exec -d docker2 /etc/init.d/apache2 start
 ```
-###### -  On browser try to connect : http://localhost:80, http://localhost:81
+###### -  On browser try to connect : 
+- http://localhost:80
 
-````
-````
+- http://localhost:81
+
+![Comming Soon](img/comingsoon.png)
 
 #### Delete all containers (runining and stoped)
 
