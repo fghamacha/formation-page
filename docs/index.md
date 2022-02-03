@@ -3,7 +3,7 @@ ___
 ## 1. Introduction 
 ___
 
-!!! note "Dans cette présention, je vous donnerai des réponses aux questions suivantes :"
+!!! note "Dans cette présentation, je vous donnerai des réponses aux questions suivantes :"
     - Conteneurs Linux LXC et Conteneurs Docker: Quelle(s) différence(s)?
     - Pourquoi utiliser des conteneurs plutôt que des Machines Virtuelles?
     - Pourquoi utilise-t-on Docker et quelles sont ses atouts dans le développement et le déploiement des applications cloud-native?
