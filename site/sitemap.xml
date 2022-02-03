@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://devos.ghamacha.com/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Ansible/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Cloud/AWS01/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Docker%20Swarm/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Cloud/Azure01/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Docker-compose/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Cloud/Google/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Docker/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Docker/Docker/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Kubernetes/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Docker/Compose/Docker-compose/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Terraform/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Docker/History/History/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://devos.ghamacha.com/Vagrant/</loc>
-         <lastmod>2022-02-01</lastmod>
+         <loc>https://devops.ghamacha.com/Docker/Swarm/Docker%20Swarm/</loc>
+         <lastmod>2022-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devops.ghamacha.com/Iaac/Ansible/</loc>
+         <lastmod>2022-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devops.ghamacha.com/Iaac/Terraform/</loc>
+         <lastmod>2022-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devops.ghamacha.com/Iaac/Vagrant/</loc>
+         <lastmod>2022-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://devops.ghamacha.com/K8s/Kubernetes/</loc>
+         <lastmod>2022-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

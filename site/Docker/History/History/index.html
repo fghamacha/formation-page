@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Fahmi GHAMACHA">
+        <link rel="canonical" href="https://devops.ghamacha.com/Docker/History/History/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>1. Introduction - Training Fahmi - DevOps</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/shell.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/bat.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Training Fahmi - DevOps</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Docker <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../../Docker/" class="dropdown-item">2. First Steps</a>
+</li>
+                                    
+<li>
+    <a href="../../Compose/Docker-compose/" class="dropdown-item">3. Docker-compose</a>
+</li>
+                                    
+<li>
+    <a href="../../Swarm/Docker%20Swarm/" class="dropdown-item">4. Docker Swarm</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../K8s/Kubernetes/" class="nav-link">Kubernetes</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Cloud/Azure01/" class="dropdown-item">Fondamentaux Azure</a>
+</li>
+                                    
+<li>
+    <a href="../../../Cloud/AWS01/" class="dropdown-item">AWS</a>
+</li>
+                                    
+<li>
+    <a href="../../../Cloud/Google/" class="dropdown-item">Google Cloud</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Infrastructure as a Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Iaac/Terraform/" class="dropdown-item">Terraform</a>
+</li>
+                                    
+<li>
+    <a href="../../../Iaac/Vagrant/" class="dropdown-item">Vagrant</a>
+</li>
+                                    
+<li>
+    <a href="../../../Iaac/Ansible/" class="dropdown-item">Ansible</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../Docker/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#presentation-docker" class="nav-link">Présentation : Docker</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-introduction" class="nav-link">1. Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-le-challenge" class="nav-link">2. Le Challenge</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-conteneur-linux-lxc" class="nav-link">3. Conteneur Linux LXC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-contenurs-vs-machines-virtuelles" class="nav-link">4. Contenurs VS Machines virtuelles</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-plateforme-docker" class="nav-link">5. Plateforme Docker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6-images-docker" class="nav-link">6. Images Docker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="presentation-docker">Présentation : Docker</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<div class="admonition note">
+<p class="admonition-title">Dans cette présantion, je vous donnerai des réponses aux questions suivantes :</p>
+<ul>
+<li>Conteneurs Linux LXC et Conteneurs Docker: Quelle(s) différence(s)?</li>
+<li>Pourquoi utiliser des conteneurs plutôt que des Machines Virtuelles?</li>
+<li>Pourquoi utilise-t-on Docker et quelles sont ses atouts dans le développement et le déploiement des applications cloud-native?</li>
+<li>Conteneurs, sont-ils vraiment populaires dans les Data Center / Cloud Computing?</li>
+<li>Docker, Cloud, DevOps et microservices, quel lien?</li>
+</ul>
+</div>
+<h3 id="big-picture">Big Picture ...</h3>
+<p><img alt="Big Picture" src="../img/01_Big_Picture.jpg" /></p>
+<h3 id="infrastructure-it-changement-de-vitesse">Infrastructure IT: Changement de vitesse</h3>
+<p><img alt="Changement de vitesse" src="../img/02-Changement%20de%20Vistesse.jpg" /></p>
+<h3 id="docker-utilisation-2021">Docker (utilisation 2021)</h3>
+<p><img alt="Usage Docker" src="../img/03-Utilisation_Docker.png" /></p>
+<h3 id="adoption-de-la-technologie-conteneur-docker">Adoption de la Technologie Conteneur Docker</h3>
+<p><img alt="Adoption Docker" src="../img/04-Adoption-Docker.png" /></p>
+<h3 id="la-technologie-conteneur-revolutionne-le-cloud">La Technologie Conteneur révolutionne le Cloud</h3>
+<p><img alt="revolution_cloud" src="../img/05-revolution_cloud.jpg" /></p>
+<h3 id="docker-la-voie-vers-devops">Docker = La voie vers DevOps</h3>
+<p><img alt="06-Voix vers le devops" src="../img/06-Voix%20vers%20le%20devops.jpg" /></p>
+<div class="admonition note">
+<p class="admonition-title">DevOps = Intégration Continue &amp; Déploiement Continu (CI/CD)</p>
+</div>
+<h2 id="2-le-challenge">2. Le Challenge</h2>
+<h4 id="services-et-environnements-multiples-comment-deployer">Services ET Environnements multiples : Comment déployer?</h4>
+<p><img alt="07-Services ET Environnements multiples" src="../img/07-Services%20multiples%20ET%20Environnements%20multiples.png" /></p>
+<h4 id="produits-et-moyens-multiples-comment-transporter">Produits ET Moyens multiples = Comment transporter?</h4>
+<p><img alt="08-Produits ET Moyens multiples" src="../img/08-Produits%20ET%20Moyens%20multiples.jpg" /></p>
+<h4 id="usage-des-conteneurs-portabilite">Usage des conteneurs = Portabilité</h4>
+<p><img alt="usage des conteneurs" src="../img/09-usage%20des%20conteneurs.jpg" />
+<img alt="usage des conteneurs" src="../img/10-usage%20des%20conteneurs.jpg" /></p>
+<h4 id="quest-ce-quun-conteneur">Qu’est ce qu’un Conteneur ?</h4>
+<ul>
+<li>
+<p>Un processus s’exécutant sur son propre système de fichiers</p>
+<ul>
+<li>Vision limitée du système sur lequel il tourne</li>
+<li>Optimisation de l'usage des ressources</li>
+<li>Le noyau quant à lui, est partagé avec le système hôte.</li>
+</ul>
+</li>
+<li>
+<p>Dérivé du principe de CHROOT (sous Unix) et de mécanisme d’isolation de système de fichiers</p>
+</li>
+<li>
+<p>Une application packagée dans un Rootfs</p>
+</li>
+<li>
+<p>Un Rootfs (le / d'un Linux) qui est appelé image contient :</p>
+<p><img alt="rootfs" src="../img/11-rootfs.jpg" /> <img alt="rootfs" src="../img/12-rootfs.jpg" /></p>
+</li>
+</ul>
+<h2 id="3-conteneur-linux-lxc">3. Conteneur Linux LXC</h2>
+<h4 id="lxc-cest-quoi">LXC : C’est quoi?</h4>
+<ul>
+<li>La virtualisation par conteneurs se base sur la virtualisation Linux LXC, pour Linux Containers.</li>
+<li>Il s’agit d’une méthode de cloisonnement au niveau de l’OS.</li>
+<li>LXC est utilisé pour faire fonctionner plusieurs instances Linux isolés les uns des autres dans des conteneurs partageant le même noyau et une petite partie du système hôte.</li>
+</ul>
+<h4 id="chroot-par-rapport-a-lxc">Chroot par rapport à LXC</h4>
+<ul>
+<li>
+<p>Chroot est moins sécurisé :</p>
+<ul>
+<li>Un conteneur chrooté partage son /proc et son /dev avec l'hôte, et il a donc tout liberté pour s'introduire dans le système</li>
+</ul>
+</li>
+<li>
+<p>Chroot donne une isolation moins faible :</p>
+<ul>
+<li>Même si le système de fichier d’un conteneur est correctement isolé, les processus (liés aux services qui tournent dedans) ne sont pas isolés (ils peuvent voir ceux de l’hôte)</li>
+<li>Les services d’un conteneur écoutent sur la même interface réseau</li>
+<li>Il n'est pas pratique du tout dés qu'il s'agit de faire tourner plein de services dans le conteneur</li>
+</ul>
+</li>
+<li>
+<p>LXC offre un jeu de nouvelles techniques d’isolation dans le kernel permettant de créer facilement un super-chroot beaucoup plus isolant que la version d'origine.</p>
+</li>
+</ul>
+<h2 id="4-contenurs-vs-machines-virtuelles">4. Contenurs VS Machines virtuelles</h2>
+<h2 id="5-plateforme-docker">5. Plateforme Docker</h2>
+<h2 id="6-images-docker">6. Images Docker</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

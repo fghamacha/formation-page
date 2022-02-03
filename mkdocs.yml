@@ -1,7 +1,7 @@
 site_name : Training Fahmi - DevOps
 site_url: https://devops.ghamacha.com
 site_author: Fahmi GHAMACHA
-
+google_analytics: ['G-6KCLCRQLYE', 'devops.ghamacha.com']
 
 nav :
   - Home: index.md
