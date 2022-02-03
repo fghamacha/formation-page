@@ -312,12 +312,13 @@ sudo docker exec -d docker2 /etc/init.d/apache2 start
 
 - http://localhost:81
 
-![Comming Soon](img/comingsoon.png)
+![02-http](img/02-http.jpg)
+
 
 #### Delete all containers (runining and stoped)
 
 #### Running web application:
-
+![Comming Soon](img/comingsoon.png)
 ### Use Docker Commit to create images
 
 ---

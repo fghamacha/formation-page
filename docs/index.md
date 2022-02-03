@@ -10,6 +10,7 @@ ___
     - Conteneurs, sont-ils vraiment populaires dans les Data Center / Cloud Computing?
     - Docker, Cloud, DevOps et microservices, quel lien?
 
+PS : les chapitres 1 & 2 ne contiennent que des explications visuelles, la rédaction commence à la fin du chapitre 2.
 ### Big Picture ...
 
 ![Big Picture](img/01_Big_Picture.jpg)
