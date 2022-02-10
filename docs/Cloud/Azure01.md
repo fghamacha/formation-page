@@ -44,24 +44,45 @@ plusieurs organisations et utilisateurs.
 - Accessible via un réseau sécurisé
 connexion (généralement sur le
 l'Internet).
-#### 1.1.3 Décrire le cloud privé
-- Les organisations créent un cloud
-environnement dans leur centre de données.
-- L'organisation est responsable de
-l'exploitation des services qu'ils fournissent.
-- Ne donne pas accès aux utilisateurs
-en dehors de l'organisation.
-#### 1.1.4 Décrire le cloud hybride
+### 1.1.2 Définir le Cloud Public.
 
+
+- Propriété de services cloud ou de l'hébergeur.
+- Fournit des ressources et des services aux plusieurs organisations et utilisateurs.
+- Accessible via un réseau sécurisé connexion (généralement sur le l'Internet).
+
+![02-Azure](img/02-Azure.jpg)     
+
+### 1.1.3 Décrire le cloud privé
+
+- Les organisations créent un environnement cloud dans leur centre de données.
+- L'organisation est responsable de l'exploitation des services qu'ils fournissent.
+- Ne donne pas accès aux utilisateurs en dehors de l'organisation.
+
+![03-Azure](img/03-Azure.jpg)     
+
+
+### 1.1.4 Décrire le cloud hybride
 
 - Combine les clouds publics et privés pour permettre aux applications de s'exécuter dans le plus grand nombre
 emplacement approprié.
+![04-Azure](img/04-Azure.jpg)     
 
 
-#### 1.1.5 Comparez et contrastez les trois différents modèles de cloud
+### 1.1.5  Comparez et contrastez les trois différents modèles de cloud
+
 
 ## 1.2  Avantages et considérations du cloud
 
 ## 1.3  Les différents services Cloud
 
 
+Service Cloud  | Description
+-------------  | -------------
+Public         | Pas de dépenses en capital à mettre à l'échelle.
+               | Les applications peuvent être rapidement provisionnées et déprovisionnées.
+               | Les organisations ne paient que pour ce qu'elles utilisent.
+               |
+Privé          | Le matériel doit être acheté pour le démarrage et la maintenance.
+               | Les applications peuvent être rapidement provisionnées et déprovisionnées.
+               | Les organisations ne paient que pour ce qu'elles utilisent.
