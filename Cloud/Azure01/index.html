@@ -441,11 +441,184 @@ automatiser et orchestrer les tâches, les processus métier et workflows lorsqu
 <h1 id="module-2-les-services-azure-de-base">Module 2 : Les services Azure de base</h1>
 <h2 id="21-composants-architecturaux-azure">2.1 : Composants architecturaux Azure</h2>
 <h3 id="211-regions-et-zones-de-disponibilite">2.1.1 : Régions et zones de disponibilité</h3>
+<div class="admonition note">
+<p class="admonition-title">Régions</p>
+<p>Azure propose des offres de régions plus globales
+que n'importe quel autre
+fournisseur cloud avec plus de 60 régions
+dans plus que 140 pays.
+<img alt="09-Azure" src="../img/09-Azure.jpg" />   </p>
+</div>
+<ul>
+<li>Les régions sont composées d'un ou plusieurs datacenters proches.</li>
+<li>Cela Fournit flexibilité et évolutivité pour réduire la latence des clients.</li>
+<li>Cela préserve la résidence de la Data grâce à une offre de conformité complète.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Régions Pairs</p>
+<ul>
+<li>Au moins 400 km de séparation entre paires de régions.</li>
+<li>Réplications automatique de certains services.</li>
+<li>Reprise prioritaire de la région en cas de panne.</li>
+<li>Les mises à jour sont déployée séquentiellement pour minimiser les temps d'arrêt
+<img alt="10-Azure" src="../img/10-Azure.jpg" /> </li>
+</ul>
+</div>
+<ul>
+<li>Lien web: https://aka.ms/PairedRegions</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Zones de disponibilité</p>
+<ul>
+<li>Fournir une protection contre les temps d'arrêt dus à défaillance du centre de données.</li>
+<li>Datacenters physiquement séparés au sein de la même région.</li>
+<li>Chaque Datacenter est équipé de son propre système d'alimentation, refroidissement et réseau.</li>
+<li>Connecté par un réseau fibre optique privé.
+<img alt="11-Azure" src="../img/11-Azure.jpg" />   </li>
+</ul>
+</div>
 <h3 id="212-abonnements-et-groupes-de-ressources">2.1.2 : Abonnements et groupes de ressources</h3>
+<div class="admonition note">
+<p class="admonition-title">Les Ressources Azure</p>
+<p>Les ressources Azure sont des composants tels que le stockage, les machines virtuelles et les réseaux qui sont disponibles pour créer des solutions cloud.
+<img alt="10-Azure" src="../img/10-Azure1.jpg" />   </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Groupes de ressources</p>
+<p>Un groupe de ressources est un conteneur à gérer et regrouper les ressources en une seule unité.</p>
+<ul>
+<li>Les ressources ne peuvent exister que dans une seule ressource grouper.</li>
+<li>Les ressources peuvent être dans des régions différentes.</li>
+<li>Les ressources peuvent être déplacées vers un autre groupe de ressources</li>
+<li>Une application peut utiliser plusieurs groupes de ressource
+<img alt="12-Azure" src="../img/12-Azure.jpg" />   </li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Azure Resource Manager</p>
+<ul>
+<li>il fournit un couche de gestion qui permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure.
+<img alt="13-Azure" src="../img/13-Azure.jpg" />   </li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Les Abonnements Azure<p>Un abonnement Azure offre une authentification  et autorisation d'accès au compte Azure.</p>
+</p>
+<ul>
+<li>Limite de facturation : générer une facturation distincte rapports et factures pour chaque abonnement.</li>
+<li>Périmètre de contrôle d'accès : gérer et contrôler l'accès aux ressources que les utilisateurs peuvent mise à disposition avec des abonnements spécifiques.
+<img alt="14-Azure" src="../img/14-Azure.jpg" />   </li>
+</ul>
+</div>
+<ul>
+<li>Exercice : <ul>
+<li>Connecte-toi à https://portal.azure.com</li>
+<li>découvre la pae d'acceuil</li>
+<li>Trouves tous les services et tout ce qui est disponible.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Gestionnaire des groupes:</p>
+<ul>
+<li>Management groups peut inclure plusieurs abonnements Azure</li>
+<li>Les abonnements héritent les conditions appliquées au management groupes</li>
+<li>10 000 Management groups peuvent être supportés dans un répertoire unique. 
+<img alt="15-Azure" src="../img/15-Azure.jpg" />   </li>
+</ul>
+</div>
 <h2 id="22-ressources-azure-de-base">2.2 : Ressources Azure de base</h2>
+<div class="admonition note">
+<p class="admonition-title">Les avantages et l'utilisation de :</p>
+<ul>
+<li>Macines virtuelles, Azure App Services, Instances de containeur Azure (ACI), Azure Kubernetes services ( AKS) et Windows Virtual Desktop.</li>
+<li>Réseau Virtuel, Passerelel VPN, Virtual network peering et ExpressRoute.</li>
+<li>Container (Blob) Stockage, Disk Storage, Azure Database pour MySQL, Azure DB pour PostgreSQK, SQL Managed instance.</li>
+<li>Marketplace Azure.</li>
+</ul>
+</div>
 <h3 id="221-calcul">2.2.1 : Calcul</h3>
+<ul>
+<li>Azure Compute est un service informatique à la demande qui fournit des ressources telles que les disques, les processeurs, la mémoire, la mise en réseau et les systèmes d'exploitation.
+<img alt="16-Azure" src="../img/16-Azure.jpg" /></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">MAchines virtuelles Azure</p>
+<p>Les machines virtuelles Azure (VM) sont des émulations logicielles d'ordinateurs physiques
+- Inclut le processeur virtuel, la mémoire, le stockage et la mise en réseau.
+- Offre IaaS qui offre un contrôle total et personnalisation.</p>
+</div>
+<ul>
+<li>Exercice :<ol>
+<li>Créer une machine virtuelle sur Azure Portal.</li>
+<li>se connecter à la VM</li>
+<li>installer le rôle serveur web et tester.</li>
+</ol>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Azure App Services</p>
+<p>Azure App Services est une plateforme entièrement gérée pour créer,déployer et mettre à l'échelle rapidement des applications Web et des API.
+- il fonctionne avec .Net, NetC Core, Node.js, Java, Python ou php
+- Offre PaaS avec performances, sécurité et les exigences de conformité.</p>
+</div>
+<ul>
+<li>
+<p>Exercice :</p>
+<ol>
+<li>Créer une application web en utilisant une image DOcker.</li>
+<li>Tester l'application web.</li>
+</ol>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Instances de containeur Azure</p>
+<ul>
+<li>Les conteneurs Azure sont un environnement virtualisé léger qui ne nécessite pas gestion du système d'exploitation et peut répondre aux changements à la demande.<ul>
+<li>Instances de conteneur Azure: Offre Paas qui exécute des conteneurs Azure sans avoir besoin des VMs ou autres services. </li>
+<li>Service Kubernetes Azure: Un service d'orchestration pour des conteneurs avec architectures distribuée.</li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li>Exercice : <ol>
+<li>Créer une instance de conteneur</li>
+<li>Deployer et tester le conteneur.</li>
+</ol>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Windows Virtuel Desktop</p>
+<p>Windows Virtual Desktop est une virtualisation de bureau et d'application qui tourne dans le cloud.
+- Créer un environnement de virtualisation de postes de travail complet sans avoir à exécuter des serveurs de passerelle supplémentaires.
+- Publier des pools d'hôtes illimités pour accueillir divers charges de travail.
+- Réduire les coûts avec des ressources multi-sessions regroupées</p>
+</div>
 <h3 id="222-reseau">2.2.2 : Réseau</h3>
+<p>Les service de réseau Azure.</p>
+<div class="admonition note">
+<p class="admonition-title">Réseau virtuel Azure (VNet)</p>
+<p>Permet les ressources Azure de se communiquer entre eux, avec internet et le réseau local.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Passerelle réseau privé virtuel (VPN)</p>
+<p>il est utilisé pour envoyer des trafique encrypté entre le réseau virtuel de Azure et le réseau local via Internet.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Express Route Azure</p>
+<p>étend le réseau local dans Azure via une connexion privée facilitée par un fournisseur de connectivité</p>
+</div>
+<p>Exercice:</p>
+<ul>
+<li>Créer un réseau virtuel.</li>
+<li>Créer deux machines virtuelles</li>
+<li>tester la connection entre les 
+ VMs.</li>
+</ul>
 <h3 id="223-stockage">2.2.3 : Stockage</h3>
+<p>Les services de stackage Azure : </p>
+<div class="admonition note"></div>
 <h3 id="224-base-de-donnees">2.2.4 : Base de données</h3>
 <h1 id="module-3-les-solutions-dazure-et-ses-outils-de-gestion">Module 3 : Les solutions d'Azure et ses outils de gestion</h1>
 <h1 id="module-4-la-securite-azure-et-la-securite-reseau">Module 4 : La sécurité Azure et la sécurité réseau</h1>
