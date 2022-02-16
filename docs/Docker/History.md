@@ -14,22 +14,22 @@ PS : les chapitres 1 & 2 ne contiennent que des explications visuelles, la réda
 
 ### Big Picture ...
 
-![Big Picture](img/01_Big_Picture.jpg)
+![Big Picture](imgHistory/01_Big_Picture.jpg)
 ### Infrastructure IT: Changement de vitesse
-![Changement de vitesse](img/02-Changement de Vistesse.jpg)
+![Changement de vitesse](imgHistory/02-Changement de Vistesse.jpg)
 ### Docker (utilisation 2021)
-![Usage Docker](img/03-Utilisation_Docker.png)
+![Usage Docker](imgHistory/03-Utilisation_Docker.png)
 
 ### Adoption de la Technologie Conteneur Docker
 
-![Adoption Docker](img/04-Adoption-Docker.png)
+![Adoption Docker](imgHistory/04-Adoption-Docker.png)
 
 ### La Technologie Conteneur révolutionne le Cloud
 
-![revolution_cloud](img/05-revolution_cloud.jpg)
+![revolution_cloud](imgHistory/05-revolution_cloud.jpg)
 
 ### Docker = La voie vers DevOps
-![06-Voix vers le devops](img/06-Voix vers le devops.jpg)
+![06-Voix vers le devops](imgHistory/06-Voix vers le devops.jpg)
 
 !!! Note "DevOps = Intégration Continue & Déploiement Continu (CI/CD)"
 ___
@@ -38,16 +38,16 @@ ___
 
 #### Services ET Environnements multiples : Comment déployer?
 
-![07-Services ET Environnements multiples](img/07-Services multiples ET Environnements multiples.png)
+![07-Services ET Environnements multiples](imgHistory/07-Services multiples ET Environnements multiples.png)
 
 #### Produits ET Moyens multiples = Comment transporter?
 
-![08-Produits ET Moyens multiples](img/08-Produits ET Moyens multiples.jpg)
+![08-Produits ET Moyens multiples](imgHistory/08-Produits ET Moyens multiples.jpg)
 
 #### Usage des conteneurs = Portabilité
 
-![usage des conteneurs](img/09-usage des conteneurs.jpg)
-![usage des conteneurs](img/10-usage des conteneurs.jpg)
+![usage des conteneurs](imgHistory/09-usage des conteneurs.jpg)
+![usage des conteneurs](imgHistory/10-usage des conteneurs.jpg)
 
 #### Qu’est ce qu’un Conteneur ?
 
@@ -63,7 +63,7 @@ ___
 
 - Un Rootfs (le / d'un Linux) qui est appelé image contient :
 
-    ![rootfs](img/11-rootfs.jpg) ![rootfs](img/12-rootfs.jpg)
+    ![rootfs](imgHistory/11-rootfs.jpg) ![rootfs](imgHistory/12-rootfs.jpg)
 
 ___
 ## 3. Conteneur Linux LXC
@@ -96,7 +96,7 @@ ___
 - LXC repose sur les bibliothèques Profils Apparmor (Application Armor) et SELinux (Security-Enhanced Linux) pour la sécurité :
     - En termes des restrictions, permissions et droits utilisateur
 #### LXC : Vue d’ensemble
-![13-LXC](img/13-LXC.jpg)
+![13-LXC](imgHistory/13-LXC.jpg)
 
 #### Docker : Un LXC augmenté
 
@@ -105,7 +105,7 @@ ___
 - Docker autorise la portabilité entre machines (qui exécutent aussi Docker) et permet ainsi à une application et à ses composants d'exister en tant qu'objet mobile unique.
 - Avec LXC, déplacer une application sur une autre machine peut introduire des différences susceptibles d'empêcher le conteneur de l'application de s'exécuter.
 
-![14-LXC](img/14-LXC.jpg)
+![14-LXC](imgHistory/14-LXC.jpg)
 
 #### Docker pour les DEV
 
@@ -147,10 +147,10 @@ ___
     - Access direct à l’API des containers Linux
     - Utilisation de la librairie libcontainer (un wrapper qui combine les Namespaces + Cgroup + UnionFS)
     - UnionFS offre un stockage sur plusieurs couches en lecture seule (léger et rapide), utilisé pour fournir les blocs de construction des conteneurs
-![15-LXC](img/15-LXC.jpg)
+![15-LXC](imgHistory/15-LXC.jpg)
 
 ### Editions Docker : CE et EE
-![16-EE](img/16-EE.jpg)
+![16-EE](imgHistory/16-EE.jpg)
 ### Open Container Initiative OCI
 
 - Démarche initiée par Docker et CoreOS et créée par la Linux Foundation en 2015
@@ -166,11 +166,11 @@ ___
 
 #### Hyperviseur vs Docker
 
-![17-VM](img/17-VM.jpg)
+![17-VM](imgHistory/17-VM.jpg)
 
 #### Hyperviseur vs Docker (Analogie)
 
-![18-VM](img/18-VM.jpg) ![19-VM](img/19-VM.jpg) 
+![18-VM](imgHistory/18-VM.jpg) ![19-VM](imgHistory/19-VM.jpg) 
 
 !!! note "Pourquoi des conteneurs plutôt que des machines virtuelles ?"
 
@@ -181,8 +181,8 @@ nombre de machines virtuelles qu'un serveur peut héberger
 - La conteneurisation vise à virtualiser les applications sans trop alourdir le système
 - Favoriser l'intégration rapide d'applications dans des conteneurs.
 #### Des conteneurs dans des VMs ?
-- ![20-VM](img/20-VM.jpg)
-- ![21-VM](img/21-VM.jpg)
+- ![20-VM](imgHistory/20-VM.jpg)
+- ![21-VM](imgHistory/21-VM.jpg)
 
 
 
@@ -191,7 +191,7 @@ nombre de machines virtuelles qu'un serveur peut héberger
 #### Docker : Vue d’ensemble
 
 
-![22-pltfrm](img/22-pltfrm.jpg)
+![22-pltfrm](imgHistory/22-pltfrm.jpg)
 
 
 ## 6. Images Docker

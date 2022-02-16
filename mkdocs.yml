@@ -6,10 +6,10 @@ google_analytics: ['G-6KCLCRQLYE', 'devops.ghamacha.com']
 nav :
   - Home: index.md
   - Docker:
-      - 1. Introduction: ./Docker/History/History.md
+      - 1. Introduction à Docker: ./Docker/History.md
       - 2. First Steps : ./Docker/Docker.md
-      - 3. Docker-compose: ./Docker/Compose/Docker-compose.md
-      - 4. Docker Swarm : ./Docker/Swarm/Docker Swarm.md
+      - 3. Docker-compose: ./Docker/Docker-compose.md
+      - 4. Docker Swarm : ./Docker/Swarm.md
   - Kubernetes: ./K8s/Kubernetes.md
   - Cloud: 
       - Fondamentaux Azure: ./Cloud/Azure01.md
@@ -20,9 +20,8 @@ nav :
       - Vagrant: ./Iaac/Vagrant.md
       - Ansible: ./Iaac/Ansible.md
 
-
 theme:
-  name: mkdocs
+  name: material 
   language: en
   highlightjs: true
   hljs_languages:
@@ -59,6 +58,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/fahmighamacha
       name: Find me on LinkedIn
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/Fahmi_Ghamacha
+      name: My Twitter
 
 copyright: Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.
 
