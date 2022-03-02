@@ -17,7 +17,7 @@
     
     
       
-        <title>Kubernetes - Training Fahmi - DevOps</title>
+        <title>1. Intro K8S - Training Fahmi - DevOps</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes
+              1. Intro K8S
             
           </span>
         </div>
@@ -183,11 +183,15 @@
   
 
 
-  <li class="md-tabs__item">
-    <a href="./" class="md-tabs__link md-tabs__link--active">
-      Kubernetes
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Kubernetes
+      </a>
+    </li>
+  
 
       
         
@@ -374,6 +378,34 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Kubernetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -381,12 +413,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Kubernetes
+          1. Intro K8S
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Kubernetes
+        1. Intro K8S
       </a>
       
         
@@ -409,10 +441,87 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#presentation" class="md-nav__link">
+    Présentation :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-a-kubernetes" class="md-nav__link">
+    1. Introduction à Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-les-fichiers-descriptifs" class="md-nav__link">
+    2. Les fichiers descriptifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture-de-kubernetes" class="md-nav__link">
+    3. Architecture de Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exploiter-kubernetes" class="md-nav__link">
+    4. Exploiter Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-gestion-avancee-de-conteneurs" class="md-nav__link">
+    5. Gestion avancée de conteneurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-kubernetes-en-production" class="md-nav__link">
+    6. Kubernetes en  production
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deploiement-dun-cluster-kubernetes" class="md-nav__link">
+    7. Déploiement d'un cluster Kubernetes
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab/" class="md-nav__link">
+        2. LAB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -600,6 +709,62 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#presentation" class="md-nav__link">
+    Présentation :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-a-kubernetes" class="md-nav__link">
+    1. Introduction à Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-les-fichiers-descriptifs" class="md-nav__link">
+    2. Les fichiers descriptifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture-de-kubernetes" class="md-nav__link">
+    3. Architecture de Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exploiter-kubernetes" class="md-nav__link">
+    4. Exploiter Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-gestion-avancee-de-conteneurs" class="md-nav__link">
+    5. Gestion avancée de conteneurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-kubernetes-en-production" class="md-nav__link">
+    6. Kubernetes en  production
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deploiement-dun-cluster-kubernetes" class="md-nav__link">
+    7. Déploiement d'un cluster Kubernetes
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -613,10 +778,33 @@
               
                 
 
-  <h1>Kubernetes</h1>
-
 <h2 id="docker-labs-kubernetes">Docker Labs - Kubernetes</h2>
 <p><img alt="Comming Soon" src="../img/comingsoon.png" /></p>
+<h2 id="presentation">Présentation :</h2>
+<ul>
+<li>Ce tutoriel explique le positionnement de Kubernetes et la notion d'orchestration. </li>
+<li>Ce tutoriel est distiné aux développeur, architectes techniques , administrateurs et responsables d'exploitation et de production, chef de projet.</li>
+<li>Pour suivre ce cours il faut avoir des connaissances des systèmes Linux/Windows, réseau TCP/IP et l'utilisation de la ligne de commande et du script shell sur Linux.</li>
+</ul>
+<h1 id="1-introduction-a-kubernetes">1. Introduction à Kubernetes</h1>
+<ul>
+<li>Kubernetes est outil de Google à la base. C'est un système permettantd'exécuter et de coordonner des applications conteneurisées sur un cluster de machines. C'est un mot d'origine grec qui signifie pilote ou barreur.</li>
+<li>Il gère le cycle de vie des applications et services conteneurisés à l'aide de méthode qui offrent prévisibilité, évolutivité et haute disponibilité.</li>
+<li>En tant qu'utilisateur de Kubernetes, vous pouvez : <ul>
+<li>Définier le mode de fonctionnement. de vos applications</li>
+<li>Comment elles doivent pouvoir interagir avec d'autres applications ou avec le monde .</li>
+<li>Faire évoluer vos services vers le haut ou vers le bas.</li>
+<li>Effectuer des mises à jour progressives.</li>
+<li>Basculer le trafic entre les différents versions de vos applications.</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-les-fichiers-descriptifs">2. Les fichiers descriptifs</h1>
+<h1 id="3-architecture-de-kubernetes">3. Architecture de Kubernetes</h1>
+<h1 id="4-exploiter-kubernetes">4. Exploiter Kubernetes</h1>
+<h1 id="5-gestion-avancee-de-conteneurs">5. Gestion avancée de conteneurs</h1>
+<h1 id="6-kubernetes-en-production">6. Kubernetes en  production</h1>
+<h1 id="7-deploiement-dun-cluster-kubernetes">7. Déploiement d'un cluster Kubernetes</h1>
 
               
             </article>
@@ -646,13 +834,13 @@
       
       
         
-        <a href="../../Cloud/Azure01/" class="md-footer__link md-footer__link--next" aria-label="Next: Fondamentaux Azure" rel="next">
+        <a href="../Lab/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. LAB" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Fondamentaux Azure
+              2. LAB
             </div>
           </div>
           <div class="md-footer__button md-icon">
