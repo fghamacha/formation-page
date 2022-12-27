@@ -1,465 +1,658 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
         <meta name="author" content="Fahmi GHAMACHA">
+      
+      
         <link rel="canonical" href="https://devops.ghamacha.com/">
-        <link rel="shortcut icon" href="img/favicon.ico">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
         <title>Training Fahmi - DevOps</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
-
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/shell.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/bat.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'G-6KCLCRQLYE', 'devops.ghamacha.com');
-            ga('send', 'pageview');
-        </script> 
-    </head>
-
-    <body class="homepage">
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href=".">Training Fahmi - DevOps</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Docker <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="Docker/History/History/" class="dropdown-item">1. Introduction</a>
-</li>
-                                    
-<li>
-    <a href="Docker/Docker/" class="dropdown-item">2. First Steps</a>
-</li>
-                                    
-<li>
-    <a href="Docker/Compose/Docker-compose/" class="dropdown-item">3. Docker-compose</a>
-</li>
-                                    
-<li>
-    <a href="Docker/Swarm/Docker%20Swarm/" class="dropdown-item">4. Docker Swarm</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="K8s/Kubernetes/" class="nav-link">Kubernetes</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="Cloud/Azure01/" class="dropdown-item">Fondamentaux Azure</a>
-</li>
-                                    
-<li>
-    <a href="Cloud/AWS01/" class="dropdown-item">AWS</a>
-</li>
-                                    
-<li>
-    <a href="Cloud/Google/" class="dropdown-item">Google Cloud</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Infrastructure as a Code <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="Iaac/Terraform/" class="dropdown-item">Terraform</a>
-</li>
-                                    
-<li>
-    <a href="Iaac/Vagrant/" class="dropdown-item">Vagrant</a>
-</li>
-                                    
-<li>
-    <a href="Iaac/Ansible/" class="dropdown-item">Ansible</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="Docker/History/History/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Training Fahmi - DevOps" class="md-header__button md-logo" aria-label="Training Fahmi - DevOps" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Training Fahmi - DevOps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-            <li class="nav-item" data-level="1"><a href="#presentation-docker" class="nav-link">Présentation : Docker</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#1-introduction" class="nav-link">1. Introduction</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#2-le-challenge" class="nav-link">2. Le Challenge</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#3-conteneur-linux-lxc" class="nav-link">3. Conteneur Linux LXC</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#4-conteneurs-vs-machines-virtuelles" class="nav-link">4. Conteneurs VS Machines virtuelles</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#5-plateforme-docker" class="nav-link">5. Plateforme Docker</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#6-images-docker" class="nav-link">6. Images Docker</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Docker/History/" class="md-tabs__link">
+        Docker
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="K8s/Kubernetes/" class="md-tabs__link">
+      Kubernetes
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Cloud/Azure01/" class="md-tabs__link">
+        Cloud
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Iaac/Terraform/" class="md-tabs__link">
+        Infrastructure as a Code
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Training Fahmi - DevOps" class="md-nav__button md-logo" aria-label="Training Fahmi - DevOps" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Training Fahmi - DevOps
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker/History/" class="md-nav__link">
+        1. Introduction à Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker/Docker/" class="md-nav__link">
+        2. First Steps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker/Docker-compose/" class="md-nav__link">
+        3. Docker-compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker/Swarm/" class="md-nav__link">
+        4. Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+      </nav>
+    </li>
+  
 
-<h1 id="presentation-docker">Présentation : Docker</h1>
-<hr />
-<h2 id="1-introduction">1. Introduction</h2>
-<hr />
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="K8s/Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cloud/Azure01/" class="md-nav__link">
+        Fondamentaux Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cloud/AWS01/" class="md-nav__link">
+        AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cloud/Google/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Infrastructure as a Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infrastructure as a Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Infrastructure as a Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Iaac/Terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Iaac/Vagrant/" class="md-nav__link">
+        Vagrant
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Iaac/Ansible/" class="md-nav__link">
+        Ansible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>Home</h1>
+
 <div class="admonition note">
-<p class="admonition-title">Dans cette présentation, je vous donnerai des réponses aux questions suivantes :</p>
+<p class="admonition-title"> C'est quoi ce site web ? </p>
 <ul>
-<li>Conteneurs Linux LXC et Conteneurs Docker: Quelle(s) différence(s)?</li>
-<li>Pourquoi utiliser des conteneurs plutôt que des Machines Virtuelles?</li>
-<li>Pourquoi utilise-t-on Docker et quelles sont ses atouts dans le développement et le déploiement des applications cloud-native?</li>
-<li>Conteneurs, sont-ils vraiment populaires dans les Data Center / Cloud Computing?</li>
-<li>Docker, Cloud, DevOps et microservices, quel lien?</li>
+<li>Ce site est un blog IT. Le but est de partager gratuitement les connaissances que j'ai acquises au fil des ans.</li>
+<li>Il explique  plusieurs technologies listées dans les onglets en haut du site. Chaque onglet contient plusieurs pages.</li>
 </ul>
 </div>
-<p>PS : les chapitres 1 &amp; 2 ne contiennent que des explications visuelles, la rédaction commence à la fin du chapitre 2.</p>
-<h3 id="big-picture">Big Picture ...</h3>
-<p><img alt="Big Picture" src="img/01_Big_Picture.jpg" /></p>
-<h3 id="infrastructure-it-changement-de-vitesse">Infrastructure IT: Changement de vitesse</h3>
-<p><img alt="Changement de vitesse" src="img/02-Changement%20de%20Vistesse.jpg" /></p>
-<h3 id="docker-utilisation-2021">Docker (utilisation 2021)</h3>
-<p><img alt="Usage Docker" src="img/03-Utilisation_Docker.png" /></p>
-<h3 id="adoption-de-la-technologie-conteneur-docker">Adoption de la Technologie Conteneur Docker</h3>
-<p><img alt="Adoption Docker" src="img/04-Adoption-Docker.png" /></p>
-<h3 id="la-technologie-conteneur-revolutionne-le-cloud">La Technologie Conteneur révolutionne le Cloud</h3>
-<p><img alt="revolution_cloud" src="img/05-revolution_cloud.jpg" /></p>
-<h3 id="docker-la-voie-vers-devops">Docker = La voie vers DevOps</h3>
-<p><img alt="06-Voix vers le devops" src="img/06-Voix%20vers%20le%20devops.jpg" /></p>
-<div class="admonition note">
-<p class="admonition-title">DevOps = Intégration Continue &amp; Déploiement Continu (CI/CD)</p>
-</div>
-<hr />
-<h2 id="2-le-challenge">2. Le Challenge</h2>
-<hr />
-<h4 id="services-et-environnements-multiples-comment-deployer">Services ET Environnements multiples : Comment déployer?</h4>
-<p><img alt="07-Services ET Environnements multiples" src="img/07-Services%20multiples%20ET%20Environnements%20multiples.png" /></p>
-<h4 id="produits-et-moyens-multiples-comment-transporter">Produits ET Moyens multiples = Comment transporter?</h4>
-<p><img alt="08-Produits ET Moyens multiples" src="img/08-Produits%20ET%20Moyens%20multiples.jpg" /></p>
-<h4 id="usage-des-conteneurs-portabilite">Usage des conteneurs = Portabilité</h4>
-<p><img alt="usage des conteneurs" src="img/09-usage%20des%20conteneurs.jpg" />
-<img alt="usage des conteneurs" src="img/10-usage%20des%20conteneurs.jpg" /></p>
-<h4 id="quest-ce-quun-conteneur">Qu’est ce qu’un Conteneur ?</h4>
-<ul>
+<ol>
+<li>Docker<ol>
+<li><a href="/Docker/History/">Introduction à Docker</a> </li>
+<li><a href="/Docker/Docker/">Premiers pas avec Docker </a></li>
+<li><a href="/Docker/Docker-compose/">Docker compose</a></li>
+<li><a href="/Docker/Swarm/">Docker Swarm</a></li>
+</ol>
+</li>
+<li>Kubernetes</li>
 <li>
-<p>Un processus s’exécutant sur son propre système de fichiers</p>
-<ul>
-<li>Vision limitée du système sur lequel il tourne</li>
-<li>Optimisation de l'usage des ressources</li>
-<li>Le noyau quant à lui, est partagé avec le système hôte.</li>
-</ul>
+<p>Cloud</p>
+<ol>
+<li><a href="/Cloud/Azure01/">Azure</a></li>
+<li><a href="/Cloud/AWS01/">AWS</a></li>
+<li><a href="/Cloud/Google/">Google</a> </li>
+</ol>
 </li>
 <li>
-<p>Dérivé du principe de CHROOT (sous Unix) et de mécanisme d’isolation de système de fichiers</p>
+<p>Infrastructure as a Code</p>
+<ol>
+<li>Terraform</li>
+<li><a href="/Iaac/Vagrant/">Vagrant</a></li>
+<li>Ansible</li>
+</ol>
 </li>
-<li>
-<p>Une application packagée dans un Rootfs</p>
-</li>
-<li>
-<p>Un Rootfs (le / d'un Linux) qui est appelé image contient :</p>
-<p><img alt="rootfs" src="img/11-rootfs.jpg" /> <img alt="rootfs" src="img/12-rootfs.jpg" /></p>
-</li>
-</ul>
-<hr />
-<h2 id="3-conteneur-linux-lxc">3. Conteneur Linux LXC</h2>
-<hr />
-<h4 id="lxc-cest-quoi">LXC : C’est quoi?</h4>
-<ul>
-<li>La virtualisation par conteneurs se base sur la virtualisation Linux LXC, pour Linux Containers.</li>
-<li>Il s’agit d’une méthode de cloisonnement au niveau de l’OS.</li>
-<li>LXC est utilisé pour faire fonctionner plusieurs instances Linux isolés les uns des autres dans des conteneurs partageant le même noyau et une petite partie du système hôte.</li>
-</ul>
-<h4 id="chroot-par-rapport-a-lxc">Chroot par rapport à LXC</h4>
-<ul>
-<li>
-<p>Chroot est moins sécurisé :</p>
-<ul>
-<li>Un conteneur chrooté partage son /proc et son /dev avec l'hôte, et il a donc tout liberté pour s'introduire dans le système</li>
-</ul>
-</li>
-<li>
-<p>Chroot donne une isolation moins faible :</p>
-<ul>
-<li>Même si le système de fichier d’un conteneur est correctement isolé, les processus (liés aux services qui tournent dedans) ne sont pas isolés (ils peuvent voir ceux de l’hôte)</li>
-<li>Les services d’un conteneur écoutent sur la même interface réseau</li>
-<li>Il n'est pas pratique du tout dés qu'il s'agit de faire tourner plein de services dans le conteneur</li>
-</ul>
-</li>
-<li>
-<p>LXC offre un jeu de nouvelles techniques d’isolation dans le kernel permettant de créer facilement un super-chroot beaucoup plus isolant que la version d'origine.</p>
-</li>
-</ul>
-<h4 id="lxc-technologies-de-base">LXC : Technologies de base</h4>
-<ul>
-<li>LXC repose sur la notion de groupes de contrôle Linux (cgroups) disponibles depuis sa version 2.6.24<ul>
-<li>Chaque groupe de contrôle permet de limiter et d’isoler l’utilisation des ressources qu’un processus peut utiliser (processeur, mémoire, réseau, système de fichier et accès E/S), et ce sans recourir à des machines virtuelles à part entière.</li>
-</ul>
-</li>
-<li>LXC repose aussi sur une isolation des espaces de nommage du noyau (namespace):<ul>
-<li>Permet d’empêcher qu’un groupe puisse « voir » les ressources des autres groupes (systèmes de fichiers, les ID réseau et les ID utilisateur)</li>
-</ul>
-</li>
-<li>LXC repose sur les bibliothèques Profils Apparmor (Application Armor) et SELinux (Security-Enhanced Linux) pour la sécurité :<ul>
-<li>En termes des restrictions, permissions et droits utilisateur</li>
-</ul>
-</li>
-</ul>
-<h4 id="lxc-vue-densemble">LXC : Vue d’ensemble</h4>
-<p><img alt="13-LXC" src="img/13-LXC.jpg" /></p>
-<h4 id="docker-un-lxc-augmente">Docker : Un LXC augmenté</h4>
-<ul>
-<li>Docker ne remplace pas les conteneurs Linux LXC (lancé en 2013)</li>
-<li>L'idée consiste à utiliser LXC comme base, puis à ajouter des capacités de niveau supérieur</li>
-<li>Docker autorise la portabilité entre machines (qui exécutent aussi Docker) et permet ainsi à une application et à ses composants d'exister en tant qu'objet mobile unique.</li>
-<li>Avec LXC, déplacer une application sur une autre machine peut introduire des différences susceptibles d'empêcher le conteneur de l'application de s'exécuter.</li>
-</ul>
-<p><img alt="14-LXC" src="img/14-LXC.jpg" /></p>
-<h4 id="docker-pour-les-dev">Docker pour les DEV</h4>
-<ul>
-<li>Build once… run everywhere</li>
-<li>Un conteneur Docker est un environnement sécurisé, stable, portable sur tous environnements</li>
-<li>Docker résout les problèmes de dépendances ou de packages manquant lors du déploiement</li>
-</ul>
-<h4 id="docker-pour-les-dev_1">Docker pour les DEV</h4>
-<ul>
-<li>Configure once… run everywhere</li>
-<li>Rend le cycle de vie des applications plus efficace, consistant, et reproductible</li>
-<li>Améliore le rendu de la qualité du code développé</li>
-<li>Élimine définitivement les inconsistances entre les différents environnements de développement, test, et production</li>
-</ul>
-<h4 id="docker-pour-lentreprise">Docker pour l’entreprise</h4>
-<ul>
-<li>Une même plate-forme pour toutes les applications</li>
-<li>Accélère la mise en place de pipelines de déploiement automatiques</li>
-<li>Interface commune qui permet aux Devs et Ops de travailler ensemble</li>
-<li>Améliore l’autonomie et la productivité des équipes Dev et Ops</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title"> ==&gt; Agilité, Portabilité, Consistance, Optimisation des coûts, Elasticité/Scalabilité… </p>
-</div>
-<h3 id="histoire">Histoire</h3>
-<ul>
-<li>2008 : dotCloud, co-fondée by Solomon Hykes<ul>
-<li>PaaS</li>
-<li>o Début de la plate-forme Docker qui simplifie l’usage des containers Linux</li>
-</ul>
-</li>
-<li>2010 : dotCloud incubée à Ycombinator</li>
-<li>2011 : Plate-forme Docker mise en open source</li>
-<li>2013 : Création de Docker.Inc pour soutenir le projet</li>
-<li>2017 : Dissociation du produit Docker et du projet Moby</li>
-</ul>
-<h3 id="format-des-conteneurs-docker">Format des conteneurs Docker</h3>
-<ul>
-<li>
-<p>Avant Docker 0.9</p>
-<ul>
-<li>Utilisation de la technologie LXC pour gérer les containers</li>
-</ul>
-</li>
-<li>
-<p>Depuis Docker 0.9</p>
-<ul>
-<li>Access direct à l’API des containers Linux</li>
-<li>Utilisation de la librairie libcontainer (un wrapper qui combine les Namespaces + Cgroup + UnionFS)</li>
-<li>UnionFS offre un stockage sur plusieurs couches en lecture seule (léger et rapide), utilisé pour fournir les blocs de construction des conteneurs
-<img alt="15-LXC" src="img/15-LXC.jpg" /></li>
-</ul>
-</li>
-</ul>
-<h3 id="editions-docker-ce-et-ee">Editions Docker : CE et EE</h3>
-<p><img alt="16-EE" src="img/16-EE.jpg" /></p>
-<h3 id="open-container-initiative-oci">Open Container Initiative OCI</h3>
-<ul>
-<li>Démarche initiée par Docker et CoreOS et créée par la Linux Foundation en 2015</li>
-<li>Créer une gouvernance des technologies de containers (spécifications et standardisation minima autour des technologies de containerisation)<ul>
-<li>Unification des formats de containers (Docker, Rocket…)</li>
-<li>Standardiser les formats des images de containers pour faciliter l’interopérabilité entre les solutions du marché et les cloud providers</li>
-<li>Standardiser certaines actions des moteurs « runtime » afin de disposer de commandes communes (start, exec, pause..)</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2 id="4-conteneurs-vs-machines-virtuelles">4. Conteneurs VS Machines virtuelles</h2>
-<hr />
-<h4 id="hyperviseur-vs-docker">Hyperviseur vs Docker</h4>
-<p><img alt="17-VM" src="img/17-VM.jpg" /></p>
-<h4 id="hyperviseur-vs-docker-analogie">Hyperviseur vs Docker (Analogie)</h4>
-<p><img alt="18-VM" src="img/18-VM.jpg" /> <img alt="19-VM" src="img/19-VM.jpg" /> </p>
-<div class="admonition note">
-<p class="admonition-title">Pourquoi des conteneurs plutôt que des machines virtuelles ?</p>
-</div>
-<p>-Les conteneurs Docker révolutionnent la virtualisation car l’idée n’est pas nouvelle
-- La virtualisation a un coût car les OS invités requièrent chacun des ressources (mémoire, CPU, réseaux)
-- Augmentation de la taille de chaque machine virtuelle, ce qui limite le
-nombre de machines virtuelles qu'un serveur peut héberger 
-- La conteneurisation vise à virtualiser les applications sans trop alourdir le système
-- Favoriser l'intégration rapide d'applications dans des conteneurs.</p>
-<h4 id="des-conteneurs-dans-des-vms">Des conteneurs dans des VMs ?</h4>
-<ul>
-<li><img alt="20-VM" src="img/20-VM.jpg" /></li>
-<li><img alt="21-VM" src="img/21-VM.jpg" /></li>
-</ul>
-<h2 id="5-plateforme-docker">5. Plateforme Docker</h2>
-<h4 id="docker-vue-densemble">Docker : Vue d’ensemble</h4>
-<p><img alt="22-pltfrm" src="img/22-pltfrm.jpg" /></p>
-<h2 id="6-images-docker">6. Images Docker</h2></div>
-            </div>
+</ol>
+
+              
+            </article>
+          </div>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.</p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = ".",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="Docker/History/" class="md-footer__link md-footer__link--next" aria-label="Next: 1. Introduction à Docker" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              1. Introduction à Docker
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="https://www.linkedin.com/in/fahmighamacha">Fahmi GHAMACHA</a>. All rights reserved.
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  
+  
 </div>
-
-    </body>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://www.linkedin.com/in/fahmighamacha" target="_blank" rel="noopener" title="Find me on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/Fahmi_Ghamacha" target="_blank" rel="noopener" title="My Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
 </html>
-
-<!--
-MkDocs version : 1.2.3
-Build Date UTC : 2022-02-09 16:49:04.377580+00:00
--->

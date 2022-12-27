@@ -70,7 +70,7 @@ sudo chmod 777 /var/run/docker.sock
 ```
 ###  Windows 10 / 11
 
-- https://docs.docker.com/desktop/windows/install/ 
+- [https://docs.docker.com/desktop/windows/install](https://docs.docker.com/desktop/windows/install/)
 
 ---
 ## Lab 2: Build and Manager images (Dockerfile)
@@ -94,6 +94,11 @@ Search for images available on Docker Hub:
 ```
 sudo docker search Ubuntu
 ```
+
+!!! Note 
+    if you are using Windows , you can use cmd and run all the following commands without 'sudo'
+
+
 Download ubuntu image to your computer
 ```
 sudo docker pull ubuntu 
@@ -308,9 +313,9 @@ sudo docker exec -d docker1 /etc/init.d/apache2 start
 sudo docker exec -d docker2 /etc/init.d/apache2 start
 ```
 ###### -  On browser try to connect : 
-- http://localhost:80
-
 - http://localhost:81
+
+- http://localhost:82
 
 ![02-http](imgDocker/02-http.jpg)
 
