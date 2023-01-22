@@ -11,66 +11,82 @@ According to [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), Dock
 
 -   In testing and development environments, some users choose to use automated convenience scripts to install Docker.
 
-###  Linux 
+=== " For Ubuntu "
+    #### 1. Set up the repository (Docker CE):
 
-#### For Ubuntu
-#### 1. Set up the repository (Docker CE):
+    - Install packages to allow apt to use a repository over HTTPS.
+    ```
+    sudo apt-get update
+    sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    ``` 
+    - Add Docker’s official GPG key:
 
-- Install packages to allow apt to use a repository over HTTPS.
-```
-sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-``` 
-- Add Docker’s official GPG key:
+    ```sh
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+    - Set up the stable repository (amd64):
+    ```sh
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+    #### 2. Install Docker
+    ```
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    ```
+    Executing the Docker Command Without Sudo (Optional):
+    ```
+    sudo usermod -aG docker $(whoami)
+    ```
+    !!! Note 
+        You have to Log out and log back in so that your group membership is re-evaluated.
 
-```sh
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-- Set up the stable repository (amd64):
-```sh
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-```
-#### 2. Install Docker
-```
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-```
-Executing the Docker Command Without Sudo (Optional):
-```
-sudo usermod -aG docker $(whoami)
-```
-!!! Note 
-    You have to Log out and log back in so that your group membership is re-evaluated.
+    Configure Docker to start on boot
+    ````
+    sudo systemctl enable docker.service
+    sudo systemctl enable containerd.service
+    ````
+    Using the Docker Command
 
-Configure Docker to start on boot
-````
- sudo systemctl enable docker.service
- sudo systemctl enable containerd.service
-````
-Using the Docker Command
+    ```
+    sudo docker --help
+    sudo docker info
+    sudo docker "subcommand" --help
+    ```
+=== "For CentOS"
 
-```
- sudo docker --help
- sudo docker info
- sudo docker "subcommand" --help
-```
-#### For CentOS
-- Installation options are available on [Docker Docs for Centos](https://docs.docker.com/engine/install/centos/)
-- Install using the repository
-```
-sudo yum install -y yum-utils
-sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install docker-ce docker-ce-cli containerd.io
-```
-- Start Docker Daemon
-```
-sudo systemctl start docker
-sudo usermod -aG docker $USER
-sudo chmod 777 /var/run/docker.sock
-```
-###  Windows 10 / 11
+    - Installation options are available on [Docker Docs for Centos](https://docs.docker.com/engine/install/centos/)
+    - Install using the repository
 
-- [https://docs.docker.com/desktop/windows/install](https://docs.docker.com/desktop/windows/install/)
+    ```
+    sudo yum install -y yum-utils
+    sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    sudo yum install docker-ce docker-ce-cli containerd.io
+
+    ```
+    - Start Docker Daemon
+    
+    ```
+    sudo systemctl start docker
+    sudo usermod -aG docker $USER
+    sudo chmod 777 /var/run/docker.sock
+
+    ```
+    Using the Docker Command
+
+    ```
+    sudo docker --help
+    sudo docker info
+    sudo docker "subcommand" --help
+    ```
+
+===  "Windows 10 / 11"
+
+    - Follow the instructions in docker official documentation [https://docs.docker.com/desktop/windows/install](https://docs.docker.com/desktop/windows/install/)
+    
+    1. Enable the WSL 2 feature on Windows. For detailed instructions, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
+    2. Download and install the [Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
+    3. Download dokcer desktop installer from [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) then install it by running Docker Desktop Installer.exe as administrator 
+
 
 ---
 ## Lab 2: Build and Manager images (Dockerfile)

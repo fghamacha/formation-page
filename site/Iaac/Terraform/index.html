@@ -576,44 +576,90 @@
                 
 
 <h1 id="terraform-lab">Terraform Lab</h1>
+<p>Terraform est un outil qui permet de créer, modifier et versionner une infrastructure de manière sûre et efficace.</p>
+<p>Il peut gérer différents fournisseurs d'infrastructure du Cloud Public (AWS, Azure, GcP, Alibaba Cloud, etc ...) ainsi que des solutions du cloud privé internes personnalisées (VmWare, Openstack, Kubernetes, etc ...)</p>
+<p>Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS avec terraform.</p>
 <ol>
-<li>Création du provider : </li>
-</ol>
-<p>il faut créer un fichier main.tf contenant le code suivant : </p>
-<div class="highlight"><pre><span></span><code>provider &quot;aws&quot; {
-    region = &quot;eu-west-3&quot; # La région de Paris
-    access_key = &quot;votre-clé-dacces&quot;
-    secret_key = &quot;votre-clé-secrète&quot;
-}
+<li>
+<p>Prérequis</p>
+<ul>
+<li>Avoir un compte AWS. Le compte peut être crée ici <a href="https://aws.amazon.com/fr/free">https://aws.amazon.com/fr/free</a></li>
+<li>Terraform installé <a href="https://developer.hashicorp.com/terraform/downloads">https://developer.hashicorp.com/terraform/downloads</a></li>
+<li>Créer La clé d'accès AWS <a href="https://console.aws.amazon.com/iam">https://console.aws.amazon.com/iam</a></li>
+</ul>
+</li>
+<li>
+<p>Création du premier code terraform : </p>
+<p>Commençant par la création un fichier main.tf, dans un dossier vide,  contenant le code suivant : </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">AWS</label><label for="__tabbed_1_2">OVH</label><label for="__tabbed_1_3">Azure</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Définir le cloud provider , la région et les codes d'accès à utiliser</span><pre><span></span><code><span class="c1"># Ce code permet de </span>
+
+<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-3&quot;</span><span class="c1"> # La région de Paris</span>
+<span class="w">    </span><span class="na">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ta-clé-dacces&quot;</span><span class="c1"> #</span>
+<span class="w">    </span><span class="na">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ta-clé-secrète&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Création de la ressource  :</li>
-</ol>
-<div class="highlight"><pre><span></span><code>resource &quot;aws_instance&quot; &quot;my_ec2_instance&quot; {
-    ami = &quot;ami-0a89a7563fc68be84&quot; # Ubuntu server 20.04 LTS SSD volume type
-    instance_type = &quot;t2.micro&quot; # 1vCPU 1 Go RAM - inclus dans l&#39;offre gratuit de AWS
-}
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Définir le cloud provider , la région et les codes d'accès à utiliser</span><pre><span></span><code><span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;ovh&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">endpoint</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ovh-eu&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">application_key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;saisir-application-key&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">application_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;saisir-application-secret&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">consumer_key</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;saisir-consumer-key&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Creation de l'instance </li>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>Ensuite, ajouter ces lignes en dessous du code précedent dans le même fichier main.tf</p>
+<div class="highlight"><span class="filename">L'instance AWS à créer</span><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;my_ec2_instance&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">ami</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-0a89a7563fc68be84&quot;</span><span class="c1"> # Ubuntu server 20.04 LTS SSD volume type</span>
+<span class="w">    </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span><span class="c1"> # 1vCPU 1 Go RAM - inclus dans l&#39;offre gratuit de AWS</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Creation de l'instance </p>
+</li>
 </ol>
 <p>En combinant les exemples précédents, nous nous retrouvons avec le code suivant :</p>
-<div class="highlight"><pre><span></span><code>provider &quot;aws&quot; {
-    region = &quot;eu-west-3&quot; # La région de Paris
-    access_key = &quot;votre-clé-dacces&quot;
-    secret_key = &quot;votre-clé-secrète&quot;
-}
+<div class="highlight"><span class="filename">main.tf</span><pre><span></span><code><span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-3&quot;</span><span class="c1"> # La région de Paris</span>
+<span class="w">    </span><span class="na">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-dacces&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-secrète&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-provider &quot;aws&quot; {
-    region = &quot;eu-west-3&quot; # La région de Paris
-    access_key = &quot;votre-clé-dacces&quot;
-    secret_key = &quot;votre-clé-secrète&quot;
-}
+<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-3&quot;</span><span class="c1"> # La région de Paris</span>
+<span class="w">    </span><span class="na">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-dacces&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-secrète&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Depuis un terminal, accéder au dossier contenant fichier main.tf et exécuter la commande suivante :</p>
-<p><div class="highlight"><pre><span></span><code>terraform init
+<div class="highlight"><pre><span></span><code>terraform init
 </code></pre></div>
-<img alt="Comming Soon" src="../img/comingsoon.png" /></p>
+<p>le output sera :  </p>
+<div class="highlight"><pre><span></span><code><span class="err">Initializing</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">backend</span><span class="p">...</span><span class="w"></span>
+
+<span class="err">Initializing</span><span class="w"> </span><span class="kr">provider</span><span class="w"> </span><span class="err">plugins...</span>
+<span class="err">-</span><span class="w"> </span><span class="err">Reusing</span><span class="w"> </span><span class="err">previous</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">hashicorp/aws</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">dependency</span><span class="w"> </span><span class="err">lock</span><span class="w"> </span><span class="err">file</span><span class="w"></span>
+<span class="err">-</span><span class="w"> </span><span class="err">Using</span><span class="w"> </span><span class="err">previously-installed</span><span class="w"> </span><span class="err">hashicorp/aws</span><span class="w"> </span><span class="nv">v4.51.0</span><span class="w"></span>
+
+<span class="err">Terraform</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">successfully</span><span class="w"> </span><span class="err">initialized</span><span class="p">!</span><span class="w"></span>
+
+<span class="err">You</span><span class="w"> </span><span class="err">may</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">begin</span><span class="w"> </span><span class="err">working</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">Terraform</span><span class="p">.</span><span class="w"> </span><span class="err">Try</span><span class="w"> </span><span class="err">running</span><span class="w"> </span><span class="s2">&quot;terraform plan&quot;</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">see</span><span class="w">  </span>
+<span class="err">any</span><span class="w"> </span><span class="err">changes</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">infrastructure</span><span class="p">.</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Terraform</span><span class="w"> </span><span class="err">commands</span><span class="w">  </span>
+<span class="err">should</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">work</span><span class="p">.</span><span class="w"></span>
+
+<span class="err">If</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">ever</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">change</span><span class="w"> </span><span class="err">modules</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="kr">backend</span><span class="w"> </span><span class="err">configuration for Terraform,      </span>
+<span class="err">rerun</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">reinitialize</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">working</span><span class="w"> </span><span class="err">directory</span><span class="p">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">forget</span><span class="p">,</span><span class="w"> </span><span class="err">other</span><span class="w"></span>
+<span class="err">commands</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">detect</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">remind</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">necessary</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="Comming Soon" src="../img/comingsoon.png" /></p>
 
               
             </article>
@@ -694,7 +740,7 @@ provider &quot;aws&quot; {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
       <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>

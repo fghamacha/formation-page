@@ -45,11 +45,14 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+    - content.tabs.link
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - markdown.extensions.attr_list
 
 extra:
