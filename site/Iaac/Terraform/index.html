@@ -576,7 +576,43 @@
                 
 
 <h1 id="terraform-lab">Terraform Lab</h1>
-<p><img alt="Comming Soon" src="../img/comingsoon.png" /></p>
+<ol>
+<li>Création du provider : </li>
+</ol>
+<p>il faut créer un fichier main.tf contenant le code suivant : </p>
+<div class="highlight"><pre><span></span><code>provider &quot;aws&quot; {
+    region = &quot;eu-west-3&quot; # La région de Paris
+    access_key = &quot;votre-clé-dacces&quot;
+    secret_key = &quot;votre-clé-secrète&quot;
+}
+</code></pre></div>
+<ol>
+<li>Création de la ressource  :</li>
+</ol>
+<div class="highlight"><pre><span></span><code>resource &quot;aws_instance&quot; &quot;my_ec2_instance&quot; {
+    ami = &quot;ami-0a89a7563fc68be84&quot; # Ubuntu server 20.04 LTS SSD volume type
+    instance_type = &quot;t2.micro&quot; # 1vCPU 1 Go RAM - inclus dans l&#39;offre gratuit de AWS
+}
+</code></pre></div>
+<ol>
+<li>Creation de l'instance </li>
+</ol>
+<p>En combinant les exemples précédents, nous nous retrouvons avec le code suivant :</p>
+<p>````
+provider "aws" {
+    region = "eu-west-3" # La région de Paris
+    access_key = "votre-clé-dacces"
+    secret_key = "votre-clé-secrète"
+}</p>
+<p>provider "aws" {
+    region = "eu-west-3" # La région de Paris
+    access_key = "votre-clé-dacces"
+    secret_key = "votre-clé-secrète"
+}</p>
+<p>```
+Depuis un terminal, accéder au dossier contenant fichier main.tf et exécuter la commande suivante :</p>
+<p><code>terraform init</code>
+<img alt="Comming Soon" src="../img/comingsoon.png" /></p>
 
               
             </article>

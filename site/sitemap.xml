@@ -2,62 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://devops.ghamacha.com/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Cloud/AWS01/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Cloud/Azure01/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Cloud/Google/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Docker/Docker-compose/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Docker/Docker/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Docker/History/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Docker/Swarm/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Iaac/Ansible/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Iaac/Terraform/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/Iaac/Vagrant/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://devops.ghamacha.com/K8s/Kubernetes/</loc>
-         <lastmod>2022-12-27</lastmod>
+         <lastmod>2023-01-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
