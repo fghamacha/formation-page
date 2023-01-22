@@ -27,12 +27,7 @@ resource "aws_instance" "my_ec2_instance" {
 
 En combinant les exemples précédents, nous nous retrouvons avec le code suivant :
 
-```
-provider "aws" {
-    region = "eu-west-3" # La région de Paris
-    access_key = "votre-clé-dacces"
-    secret_key = "votre-clé-secrète"
-}
+````
 
 provider "aws" {
     region = "eu-west-3" # La région de Paris
@@ -40,7 +35,14 @@ provider "aws" {
     secret_key = "votre-clé-secrète"
 }
 
-```
+provider "aws" {
+    region = "eu-west-3" # La région de Paris
+    access_key = "votre-clé-dacces"
+    secret_key = "votre-clé-secrète"
+}
+
+
+````
 
 Depuis un terminal, accéder au dossier contenant fichier main.tf et exécuter la commande suivante :
 
