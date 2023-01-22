@@ -598,20 +598,21 @@
 <li>Creation de l'instance </li>
 </ol>
 <p>En combinant les exemples précédents, nous nous retrouvons avec le code suivant :</p>
-<p>````
-provider "aws" {
-    region = "eu-west-3" # La région de Paris
-    access_key = "votre-clé-dacces"
-    secret_key = "votre-clé-secrète"
-}</p>
-<p>provider "aws" {
-    region = "eu-west-3" # La région de Paris
-    access_key = "votre-clé-dacces"
-    secret_key = "votre-clé-secrète"
-}</p>
-<p>```
-Depuis un terminal, accéder au dossier contenant fichier main.tf et exécuter la commande suivante :</p>
-<p><code>terraform init</code>
+<div class="highlight"><pre><span></span><code>provider &quot;aws&quot; {
+    region = &quot;eu-west-3&quot; # La région de Paris
+    access_key = &quot;votre-clé-dacces&quot;
+    secret_key = &quot;votre-clé-secrète&quot;
+}
+
+provider &quot;aws&quot; {
+    region = &quot;eu-west-3&quot; # La région de Paris
+    access_key = &quot;votre-clé-dacces&quot;
+    secret_key = &quot;votre-clé-secrète&quot;
+}
+</code></pre></div>
+<p>Depuis un terminal, accéder au dossier contenant fichier main.tf et exécuter la commande suivante :</p>
+<p><div class="highlight"><pre><span></span><code>terraform init
+</code></pre></div>
 <img alt="Comming Soon" src="../img/comingsoon.png" /></p>
 
               
