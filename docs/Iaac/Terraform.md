@@ -270,8 +270,57 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
     ``` terraform title="Message d'erreur VPC"
     Error: creating EC2 Instance: VPCIdNotSpecified: No default VPC for this user. GroupName is only supported for EC2-Classic  and default VPC.
     ```
+4. Modifications des ressources:
 
-4. Destruction de l'infrastructure
+    Terraform maintient un enregistrement de toutes les ressources qu'il a générées auparavant. Si une information est ajoutée, Terraform est capable de reconnaître l'existence d'une instance EC2 existante et de signaler les différences entre ce qui est actuellement déployé et les éléments présents dans le code Terraform. Pour démontrer cette fonctionnalité, il est possible de nommer une instance en créant une balise avec la clé "Name" et la valeur "terraform-001", ce qui se traduit par le code suivant :
+
+    ``` terraform title="Modification des ressources"
+
+    provider "aws" {
+        region = "eu-west-1" # La région d'irlande'
+        access_key = "votre-clé-dacces"
+        secret_key = "votre-clé-secrète"
+    }
+
+    resource "aws_instance" "my_ec2_instance" {
+        ami = "ami-0a89a7563fc68be84" # Ubuntu server 20.04 LTS SSD volume type
+        instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
+        tags = {
+            Name = "terraform-001"
+        }
+    }
+    ```
+    Exécutons ensuite le code :
+
+    ``` terraform
+    terraform init && terraform apply
+    ```
+    Output : 
+
+    ```terraform
+
+    Terraform used the selected providers to generate the following execution plan
+    Resource actions are indicated with the following symbols:
+    ~ update in-place
+    Terraform will perform the following actions:
+    # aws_instance.my_ec2_instance will be updated in-place
+    ~ resource "aws_instance" "my_ec2_instance" {
+        ~ tags                                 = {
+            + "Name" = "terraform-001"
+            }
+        }
+    Plan: 0 to add, 1 to change, 0 to destroy.
+    Do you want to perform these actions?
+    Terraform will perform the actions described above.
+    Only 'yes' will be accepted to approve.
+
+    Enter a value: yes
+
+    aws_instance.my_ec2_instance: Modifying... 
+    aws_instance.my_ec2_instance: Modifications complete after 1s
+    Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+    ```
+5. Destruction de l'infrastructure
 
     Grâce à Terraform, le netoyage devient vraiment facile et rapide. il suffit de lancer la commande suivante dans le dossier où on a initier notre code:
 
