@@ -40,7 +40,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         # Ce code permet de 
 
         provider "aws" {
-            region = "eu-west-3" # La région de Paris
+            region = "eu-west-1" # La région d'irlande'
             access_key = "ta-clé-dacces" #
             secret_key = "ta-clé-secrète"
         }
@@ -259,11 +259,17 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         Enter a value: yes
     ```
 
-    la ressource a été bien deployée sur le founisseur cloud. il est possible de le vérifiant en se connectant à la console web du cloud Provider
+    La ressource a été bien deployée sur le founisseur cloud. il est possible de le vérifiant en se connectant à la console web du cloud Provider
 
     -   AWS :   [Console AWS](https://console.aws.amazon.com/ec2/v2/home)
     -   OVH :   [OVH Cloud](https://ovhcloud.com)
     -   Azure : [ Azure Portal](https://portal.azure.com)
+
+    Si le message suivant s'affiche, penser à [créer un VPC par défaut](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-vpc) dans la région choisie ( ici L'irlande)
+
+    ``` terraform title="Message d'erreur VPC"
+    Error: creating EC2 Instance: VPCIdNotSpecified: No default VPC for this user. GroupName is only supported for EC2-Classic  and default VPC.
+    ```
 
 4. Destruction de l'infrastructure
 
