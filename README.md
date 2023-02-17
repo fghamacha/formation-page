@@ -1,5 +1,13 @@
 # formation-page
 
+0. Install mkdocs & mkdocs-material
+
+```
+pip install mkdocs
+pip install mkdocs-material
+```
+
+
 1. Deploy Mkdocs 
 After  ``` checkout ``` the primary working branch (master) of this git repository where i maintain the source documentation , run the following command:
 

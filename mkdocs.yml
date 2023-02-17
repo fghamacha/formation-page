@@ -14,6 +14,7 @@ nav :
   - Cloud: 
       - Fondamentaux Azure: ./Cloud/Azure01.md
       - AWS: ./Cloud/AWS01.md
+      # - AWS Practice: ./Cloud/AWS02.md
       - Google Cloud: ./Cloud/Google.md
   - Infrastructure as a Code: 
       - Terraform: ./Iaac/Terraform.md

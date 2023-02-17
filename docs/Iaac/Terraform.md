@@ -16,6 +16,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         - Avoir un compte AWS. Le compte peut être crée ici [https://aws.amazon.com/fr/free](https://aws.amazon.com/fr/free)
         - Terraform installé [https://developer.hashicorp.com/terraform/downloads](https://developer.hashicorp.com/terraform/downloads)
         - Créer La clé d'accès AWS [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam)
+        - Ce document détaille [La création de la clé d'accès sur AWS ](../../Cloud/AWS02).
 
     === "OVH"
         - Avoir un compte OVHCloud
@@ -98,15 +99,14 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         ```` terraform title="main.tf"
 
         provider "aws" {
-            region = "eu-west-3" # La région de Paris
+            region = "eu-west-1" # La région d'irlande'
             access_key = "votre-clé-dacces"
             secret_key = "votre-clé-secrète"
         }
 
-        provider "aws" {
-            region = "eu-west-3" # La région de Paris
-            access_key = "votre-clé-dacces"
-            secret_key = "votre-clé-secrète"
+        resource "aws_instance" "my_ec2_instance" {
+            ami = "ami-0a89a7563fc68be84" # Ubuntu server 20.04 LTS SSD volume type
+            instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
         }
         ````
     === "OVH"

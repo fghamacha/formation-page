@@ -12,6 +12,7 @@
 3. Cloud
     1. [Azure](/Cloud/Azure01/)
     2. [AWS](/Cloud/AWS01/)
+    3. [AWS Access key](/Cloud/AWS02/)
     2. [Google](/Cloud/Google/) ( Not finished )
 
  

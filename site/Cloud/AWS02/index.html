@@ -10,20 +10,16 @@
         <meta name="author" content="Fahmi GHAMACHA">
       
       
-        <link rel="canonical" href="https://devops.ghamacha.com/K8s/Kubernetes/">
+        <link rel="canonical" href="https://devops.ghamacha.com/Cloud/AWS02/">
       
       
-        <link rel="prev" href="../../Docker/Swarm/">
-      
-      
-        <link rel="next" href="../../Cloud/Azure01/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Kubernetes - Training Fahmi - DevOps</title>
+        <title>AWS02 - Training Fahmi - DevOps</title>
       
     
     
@@ -111,11 +107,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#docker-labs-kubernetes" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -147,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes
+              AWS02
             
           </span>
         </div>
@@ -229,12 +220,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="./" class="md-tabs__link md-tabs__link--active">
+    <a href="../../K8s/Kubernetes/" class="md-tabs__link">
       Kubernetes
     </a>
   </li>
@@ -249,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Cloud/Azure01/" class="md-tabs__link">
+      <a href="../Azure01/" class="md-tabs__link">
         Cloud
       </a>
     </li>
@@ -422,48 +411,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Kubernetes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../K8s/Kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-labs-kubernetes" class="md-nav__link">
-    Docker Labs - Kubernetes
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -503,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Cloud/Azure01/" class="md-nav__link">
+      <a href="../Azure01/" class="md-nav__link">
         Fondamentaux Azure
       </a>
     </li>
@@ -517,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Cloud/AWS01/" class="md-nav__link">
+      <a href="../AWS01/" class="md-nav__link">
         AWS
       </a>
     </li>
@@ -531,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Cloud/Google/" class="md-nav__link">
+      <a href="../Google/" class="md-nav__link">
         Google Cloud
       </a>
     </li>
@@ -640,21 +592,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-labs-kubernetes" class="md-nav__link">
-    Docker Labs - Kubernetes
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -669,10 +606,58 @@
 
 
 
-  <h1>Kubernetes</h1>
-
-<h2 id="docker-labs-kubernetes">Docker Labs - Kubernetes</h2>
-<p><img alt="Comming Soon" src="../img/comingsoon.png" /></p>
+<p>Configuration du Compte AWS</p>
+<p>Lors dr la premieres inscription à AWS, vous vous connectez initialement en tant qu'utilisateur root. Ce compte d'utilisateur a un accès complet, donc du point de vue de la sécurité, je vous recommande de l'utiliser uniquement pour créer d'autres comptes d'utilisateurs avec des autorisations plus limitées.</p>
+<p>Pour créer un compte d'utilisateur AWS limité :</p>
+<ul>
+<li>Se rendre sur la console du service <a href="https://console.aws.amazon.com/iam/home">Identity Access Management (IAM)</a> </li>
+<li>Cliquer sur <code>Users</code>, puis sur le bouton bleu <code>Add User</code>.</li>
+</ul>
+<p><img alt="AWS02-01" src="../img/AWS02-01.jpg" /></p>
+<ul>
+<li>Saisir un nom pour l'utilisateur. Par exemple : <code>terraform-user</code>.</li>
+<li>Cliquer sur le bouton <code>Next</code> :</li>
+</ul>
+<p><img alt="AWS02-02" src="../img/AWS02-02.jpg" /></p>
+<ul>
+<li>Cocher la case  <code>Attach policies directly</code>,</li>
+<li>Choisir la policy déjà pré-configurée d'AWS nommée <code>AmazonEC2FullAccess</code>,</li>
+<li>Cliquer sur "Next"</li>
+</ul>
+<p><img alt="AWS02-03" src="../img/AWS02-03.jpg" /></p>
+<ul>
+<li>Vérifier les informations</li>
+<li>Cliquer sur <code>Create user</code></li>
+</ul>
+<p><img alt="AWS02-04" src="../img/AWS02-04.jpg" /></p>
+<ul>
+<li>Le message suivant s'affiche </li>
+</ul>
+<p><img alt="AWS02-05" src="../img/AWS02-05.jpg" /></p>
+<p>Pour créer une clé d'accès :</p>
+<ul>
+<li>Accéder à <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/users">la liste des utilisateurs</a></li>
+<li>Selectionner l'utilisateur crée ( dans mon cas : <code>terraform-user</code> )</li>
+</ul>
+<p><img alt="AWS02-06" src="../img/AWS02-06.jpg" /></p>
+<ul>
+<li>Sélectionner l'onglet <code>Security credentials</code></li>
+<li>Cliquer sur <code>Create Access Key</code></li>
+</ul>
+<p><img alt="AWS02-07" src="../img/AWS02-07.jpg" /></p>
+<ul>
+<li>Choisir le cas d'utilisation de la clé d'accès ( J'ai choisit <code>Local code</code>), Ensuite cocher la case en bas et cliquer sur <code>Next</code>.</li>
+<li>Décrire le cas d'utilisation de la clé ( J'ai écrit Terraform )</li>
+<li>Cliquer sur <code>Create access key</code></li>
+</ul>
+<p><img alt="AWS02-08" src="../img/AWS02-08.jpg" /></p>
+<ul>
+<li>Il faut Copier le <code>Secret access key</code> dans un endroit sûr parce qu'il n'est visible qu'une seule fois.</li>
+</ul>
+<p><img alt="AWS02-09" src="../img/AWS02-09.jpg" /></p>
+<ul>
+<li>L'utilisateur est dorénavant prêt à être utilisé</li>
+</ul>
 
 
 
