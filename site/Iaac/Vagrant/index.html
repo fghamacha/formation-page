@@ -782,29 +782,29 @@
 <li>Vagrant installé sur la machine hôte ==&gt; https://www.vagrantup.com/downloads</li>
 <li>vmware utility installé  ==&gt; https://www.vagrantup.com/vmware/downloads</li>
 <li>Installer VMware provider plugin avec la commande :
-<div class="highlight"><pre><span></span><code>vagrant plugin install vagrant-vmware-desktop
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vagrant plugin install vagrant-vmware-desktop
 </code></pre></div></li>
 </ul>
 <h6 id="creation-de-la-vm">Création de la VM :</h6>
 <p>Cloner le depôt :
-<div class="highlight"><pre><span></span><code>git clone git@github.com:fghamacha/vagrant.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git clone git@github.com:fghamacha/vagrant.git
 </code></pre></div>
 accéder au dossier souhaiter et créer le VM en lançant la commande : 
-<div class="highlight"><pre><span></span><code>vagrant up
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vagrant up
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title"> la création de la VM n'est pas instantanée, il faut vagrant download l'image de la VM depuis le site https://vagrantcloud.com </p>
 </div>
 <h6 id="creation-de-la-vm_1">Création de la VM :</h6>
 <p>Pour lancer powershell de la machine guest dans la machine hôte :
-<div class="highlight"><pre><span></span><code>vagrant powershell
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vagrant powershell
 </code></pre></div>
 Lancer directement une commande powershell
-<div class="highlight"><pre><span></span><code>vagrant powershell -c MaCommande
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vagrant powershell -c MaCommande
 </code></pre></div></p>
 <h5 id="detruire-la-vm">Détruire la VM</h5>
 <p>Pour détruire la VM :</p>
-<div class="highlight"><pre><span></span><code>vagrant destroy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vagrant destroy
 </code></pre></div>
 <hr />
 <h4 id="2-vmware-esxi">2. VMware ESXI</h4>
@@ -870,7 +870,7 @@ Lancer directement une commande powershell
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
