@@ -72,7 +72,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         ``` terraform title="L'instance AWS à créer"
 
         resource "aws_instance" "my_ec2_instance" {
-            ami = "ami-0a89a7563fc68be84" # Ubuntu server 20.04 LTS SSD volume type
+            ami = "ami-0cc4e06e6e710cd94" # Ubuntu server 20.04 LTS SSD volume type
             instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
         }
 
@@ -105,7 +105,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
         }
 
         resource "aws_instance" "my_ec2_instance" {
-            ami = "ami-0a89a7563fc68be84" # Ubuntu server 20.04 LTS SSD volume type
+            ami = "ami-0cc4e06e6e710cd94" # Ubuntu server 20.04 LTS SSD volume type
             instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
         }
         ````
@@ -190,7 +190,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
 
         # aws_instance.my_ec2_instance will be created
         + resource "aws_instance" "my_ec2_instance" {
-            + ami                                  = "ami-0a89a7563fc68be84"
+            + ami                                  = "ami-0cc4e06e6e710cd94"
             + arn                                  = (known after apply)    
             + associate_public_ip_address          = (known after apply)    
             + availability_zone                    = (known after apply)    
@@ -239,7 +239,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
 
         # aws_instance.my_ec2_instance will be created
         + resource "aws_instance" "my_ec2_instance" {
-        + ami                                  = "ami-0a89a7563fc68be84"  
+        + ami                                  = "ami-0cc4e06e6e710cd94"  
         + cpu_threads_per_core                 = (known after apply)    
         + disable_api_stop                     = (known after apply)    
         + host_id                              = (known after apply)    
@@ -283,7 +283,7 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
     }
 
     resource "aws_instance" "my_ec2_instance" {
-        ami = "ami-0a89a7563fc68be84" # Ubuntu server 20.04 LTS SSD volume type
+        ami = "ami-0cc4e06e6e710cd94" # Ubuntu server 20.04 LTS SSD volume type
         instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
         tags = {
             Name = "terraform-001"
@@ -320,7 +320,134 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
     aws_instance.my_ec2_instance: Modifications complete after 1s
     Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
     ```
-5. Destruction de l'infrastructure
+5. Deploiement d'un service web:
+
+    Il est possible de deployer Un service web en lançant le script suivant dans l'instance EC2 avec terraform:
+
+    ```sh
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get install -y apache2
+    sudo systemctl start apache2
+    sudo systemctl enable apache2
+    sudo echo "<h1> Bonjour devopsien.nne </h1>" > /var/www/html/index.html
+    ```
+    Ce script permet de : 
+
+    - Mettre à jour les packages
+    - Installé le serveur web apache
+    - Démarrer le serveur apache 
+    - Activer le service du serveur web apache
+    - Créer une page html contenant la phrase ```Bonjour devopsien.nne```
+
+
+    Ajoutant ce script à notre fichier main.tf
+
+    ``` terraform title="Ajout du serveur web"
+
+    provider "aws" {
+        region = "eu-west-1" # La région d'irlande'
+        access_key = "votre-clé-dacces"
+        secret_key = "votre-clé-secrète"
+    }
+
+    resource "aws_instance" "my_ec2_instance" {
+        ami = "ami-0cc4e06e6e710cd94" # Ubuntu server 20.04 LTS SSD volume type
+        instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
+        
+        user_data = <<-EOF
+            #!/bin/bash
+            sudo apt-get update
+            sudo apt-get install -y apache2
+            sudo systemctl start apache2
+            sudo systemctl enable apache2
+            sudo echo "<h1> Bonjour devopsien.nne </h1>" > /var/www/html/index.html
+	    EOF
+
+        tags = {
+            Name = "terraform-001"
+        }
+    }
+    ```
+
+    Le lancement de ce script ne permet pas d'exposer le serveur web à internet. Pour se faire il faut créer un ```Security group``` et autoriser les flux entrants sur le port 80 (HTTP):
+
+    ```terraform
+    resource "aws_security_group" "instance_sg" {
+        name = "terraform-001-sg"
+
+        egress {
+            from_port       = 0
+            to_port         = 0
+            protocol        = "-1"
+            cidr_blocks     = ["0.0.0.0/0"]
+        }
+
+        ingress {
+            from_port   = 80
+            to_port     = 80
+            protocol    = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+        }
+    }
+    ```
+
+    Ajouter le script de création de Security group à notre fichier main.tf
+
+    ``` terraform title="Ajout de Security group"
+
+    provider "aws" {
+        region = "eu-west-1" # La région d'irlande'
+        access_key = "votre-clé-dacces"
+        secret_key = "votre-clé-secrète"
+    }
+
+    resource "aws_security_group" "instance_sg" {
+        name = "terraform-001-sg"
+
+        egress {
+            from_port       = 0
+            to_port         = 0
+            protocol        = "-1"
+            cidr_blocks     = ["0.0.0.0/0"]
+        }
+
+        ingress {
+            from_port   = 80
+            to_port     = 80
+            protocol    = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+        }
+    }
+    resource "aws_instance" "my_ec2_instance" {
+        ami = "ami-0cc4e06e6e710cd94" # Ubuntu server 20.04 LTS SSD volume type
+        instance_type = "t2.micro" # 1vCPU 1 Go RAM - inclus dans l'offre gratuit de AWS
+        vpc_security_group_ids = [aws_security_group.instance_sg.id]
+        
+        user_data = <<-EOF
+            #!/bin/bash
+            sudo apt-get update
+            sudo apt-get install -y apache2
+            sudo systemctl start apache2
+            sudo systemctl enable apache2
+            sudo echo "<h1> Bonjour devopsien.nne </h1>" > /var/www/html/index.html
+	    EOF
+
+        tags = {
+            Name = "terraform-001"
+        }
+    }
+
+    ```
+
+    Exécutons ensuite le code :
+
+    ``` terraform
+    terraform init && terraform apply
+    ```
+
+
+6. Destruction de l'infrastructure
 
     Grâce à Terraform, le netoyage devient vraiment facile et rapide. il suffit de lancer la commande suivante dans le dossier où on a initier notre code:
 
@@ -334,22 +461,22 @@ Cette page est un tutoriel pour créer un première infrastructure cloud sur AWS
 
     ``` terraform title="destruction des ressources"
 
-        Terraform will perform the following actions:
+    Terraform will perform the following actions:
 
         # aws_instance.my_ec2_instance will be destroyed
-        - resource "aws_instance" "my_ec2_instance" {
-            ...
-        }
+    - resource "aws_instance" "my_ec2_instance" {
+       ...
+    }
 
-        # aws_security_group.instance_sg will be destroyed
-        - resource "aws_security_group" "instance_sg" {
-            ...
-        }
+    # aws_security_group.instance_sg will be destroyed
+    - resource "aws_security_group" "instance_sg" {
+      ...
+    }
 
-        Enter a value: yes
+    Enter a value: yes
 
-        aws_instance.my_ec2_instance: Destruction complete after 15s
-        aws_security_group.instance_sg: Destruction complete after 2s
+    aws_instance.my_ec2_instance: Destruction complete after 15s
+    aws_security_group.instance_sg: Destruction complete after 2s
 
-        Destroy complete! Resources: 2 destroyed.
+    Destroy complete! Resources: 2 destroyed.
     ```

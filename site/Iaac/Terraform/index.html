@@ -672,7 +672,7 @@
 <div class="highlight"><span class="filename">Définir le cloud provider , la région et les codes d'accès à utiliser</span><pre><span></span><code><span class="c1"># Ce code permet de </span>
 
 <span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-3&quot;</span><span class="c1"> # La région de Paris</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-1&quot;</span><span class="c1"> # La région d&#39;irlande&#39;</span>
 <span class="w">    </span><span class="na">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ta-clé-dacces&quot;</span><span class="c1"> #</span>
 <span class="w">    </span><span class="na">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ta-clé-secrète&quot;</span>
 <span class="p">}</span>
@@ -853,12 +853,65 @@
 
 <span class="w">    </span><span class="err">Enter</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="err">yes</span>
 </code></pre></div>
-<p>la ressource a été bien deployée sur le founisseur cloud. il est possible de le vérifiant en se connectant à la console web du cloud Provider</p>
+<p>La ressource a été bien deployée sur le founisseur cloud. il est possible de le vérifiant en se connectant à la console web du cloud Provider</p>
 <ul>
 <li>AWS :   <a href="https://console.aws.amazon.com/ec2/v2/home">Console AWS</a></li>
 <li>OVH :   <a href="https://ovhcloud.com">OVH Cloud</a></li>
 <li>Azure : <a href="https://portal.azure.com"> Azure Portal</a></li>
 </ul>
+<p>Si le message suivant s'affiche, penser à <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-vpc">créer un VPC par défaut</a> dans la région choisie ( ici L'irlande)</p>
+<p><div class="highlight"><span class="filename">Message d'erreur VPC</span><pre><span></span><code><span class="err">Error</span><span class="p">:</span><span class="w"> </span><span class="err">creating</span><span class="w"> </span><span class="err">EC</span><span class="m">2</span><span class="w"> </span><span class="err">Instance</span><span class="p">:</span><span class="w"> </span><span class="err">VPCIdNotSpecified</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">default</span><span class="w"> </span><span class="err">VPC</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">user</span><span class="p">.</span><span class="w"> </span><span class="err">GroupName</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">supported</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">EC</span><span class="m">2</span><span class="err">-Classic</span><span class="w">  </span><span class="err">and</span><span class="w"> </span><span class="err">default</span><span class="w"> </span><span class="err">VPC</span><span class="p">.</span>
+</code></pre></div>
+4. Modifications des ressources:</p>
+<p>Terraform maintient un enregistrement de toutes les ressources qu'il a générées auparavant. Si une information est ajoutée, Terraform est capable de reconnaître l'existence d'une instance EC2 existante et de signaler les différences entre ce qui est actuellement déployé et les éléments présents dans le code Terraform. Pour démontrer cette fonctionnalité, il est possible de nommer une instance en créant une balise avec la clé "Name" et la valeur "terraform-001", ce qui se traduit par le code suivant :</p>
+<p><div class="highlight"><span class="filename">Modification des ressources</span><pre><span></span><code><span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eu-west-1&quot;</span><span class="c1"> # La région d&#39;irlande&#39;</span>
+<span class="w">    </span><span class="na">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-dacces&quot;</span>
+<span class="w">    </span><span class="na">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;votre-clé-secrète&quot;</span>
+<span class="p">}</span>
+
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;my_ec2_instance&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">ami</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-0a89a7563fc68be84&quot;</span><span class="c1"> # Ubuntu server 20.04 LTS SSD volume type</span>
+<span class="w">    </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span><span class="c1"> # 1vCPU 1 Go RAM - inclus dans l&#39;offre gratuit de AWS</span>
+<span class="w">    </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform-001&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+Exécutons ensuite le code :</p>
+<p><div class="highlight"><pre><span></span><code><span class="err">terraform</span><span class="w"> </span><span class="err">init</span><span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span><span class="err">terraform</span><span class="w"> </span><span class="err">apply</span>
+</code></pre></div>
+Output : </p>
+<p><div class="highlight"><pre><span></span><code><span class="err">Terraform</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">selected</span><span class="w"> </span><span class="err">providers</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">plan</span>
+<span class="err">Resource</span><span class="w"> </span><span class="err">actions</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">indicated</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">symbols</span><span class="p">:</span>
+<span class="err">~</span><span class="w"> </span><span class="err">update</span><span class="w"> </span><span class="err">in-place</span>
+<span class="err">Terraform</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">perform</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">actions</span><span class="p">:</span>
+<span class="c1"># aws_instance.my_ec2_instance will be updated in-place</span>
+<span class="err">~</span><span class="w"> </span><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;my_ec2_instance&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">~</span><span class="w"> </span><span class="nb">tags</span><span class="w">                                 </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="err">+</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform-001&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="err">Plan</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">add</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">change</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">destroy</span><span class="p">.</span>
+<span class="err">Do</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">perform</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">actions</span><span class="p">?</span>
+<span class="err">Terraform</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">perform</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">actions</span><span class="w"> </span><span class="err">described</span><span class="w"> </span><span class="err">above</span><span class="p">.</span>
+<span class="err">Only</span><span class="w"> </span><span class="err">&#39;yes&#39;</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">accepted</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">approve</span><span class="p">.</span>
+
+<span class="err">Enter</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">value</span><span class="p">:</span><span class="w"> </span><span class="err">yes</span>
+
+<span class="nv">aws_instance.my_ec2_instance</span><span class="p">:</span><span class="w"> </span><span class="err">Modifying</span><span class="p">...</span><span class="w"> </span>
+<span class="nv">aws_instance.my_ec2_instance</span><span class="p">:</span><span class="w"> </span><span class="err">Modifications</span><span class="w"> </span><span class="err">complete</span><span class="w"> </span><span class="err">after</span><span class="w"> </span><span class="m">1</span><span class="err">s</span>
+<span class="err">Apply</span><span class="w"> </span><span class="err">complete</span><span class="p">!</span><span class="w"> </span><span class="err">Resources</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="err">added</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="err">changed</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="err">destroyed</span><span class="p">.</span>
+</code></pre></div>
+5. Deploiement d'un service web:</p>
+<p>Il est possible de deployer Un service web en lançant le script suivant dans l'instance EC2 avec terraform:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>apache2
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>apache2
+sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt; Bonjour devopsien.nne &lt;/h1&gt;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/var/www/html/index.html
+</code></pre></div>
 </li>
 <li>
 <p>Destruction de l'infrastructure</p>
