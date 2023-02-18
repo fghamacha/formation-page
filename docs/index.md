@@ -17,6 +17,6 @@
 
  
 4. Infrastructure as a Code
-    1. [Terraform](/Iaac/Terraform/)
+    1. [Terraform:](/Iaac/Terraform/)
     2. [Vagrant](/Iaac/Vagrant/)
     3. Ansible
