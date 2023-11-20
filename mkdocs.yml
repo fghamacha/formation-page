@@ -17,9 +17,10 @@ nav :
       # - AWS Practice: ./Cloud/AWS02.md
       - Google Cloud: ./Cloud/Google.md
   - Infrastructure as a Code: 
-      - Terraform: ./Iaac/Terraform.md
-      - Vagrant: ./Iaac/Vagrant.md
-      - Ansible: ./Iaac/Ansible.md
+      - Comparaison: ./Iac/Compare.md
+      - Terraform: ./Iac/Terraform.md
+      - Vagrant: ./Iac/Vagrant.md
+      - Ansible: ./Iac/Ansible.md
 
 theme:
   name: material 

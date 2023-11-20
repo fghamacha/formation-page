@@ -248,6 +248,7 @@ Et pour en finir, saisir yes pour confirmer l'application du code terraform
         + instance_initiated_shutdown_behavior = (known after apply)
         + instance_state                       = (known after apply)
         + instance_type                        = "t2.micro"
+        }
         Plan: 2 to add, 0 to change, 0 to destroy.
 
         Changes to Outputs:
