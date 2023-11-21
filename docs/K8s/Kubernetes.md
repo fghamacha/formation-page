@@ -13,25 +13,19 @@ Kubernetes se compose de plusieurs composants clés, chacun jouant un rôle spé
    - **etcd** : Une base de données distribuée pour stocker la configuration et l'état du cluster.
    - **kube-scheduler** : Sélectionne les nœuds appropriés pour le déploiement des pods.
    - **kube-controller-manager** : Gère les contrôleurs pour maintenir l'état du cluster.
-
 2. **Nodes (nœuds)** :
    - **kubelet** : Gère les pods sur un nœud, assurant leur création, leur démarrage, etc.
    - **kube-proxy** : Gère la connectivité réseau pour les pods.
-
 3. **Pods** :
    - L'unité de base contenant un ou plusieurs conteneurs et partageant des ressources.
-
 4. **Controllers** :
    - **Deployment Controller** : Gère les déploiements pour la mise à l'échelle et la mise à jour des applications.
    - **ReplicaSet Controller** : Garantit un nombre spécifié de répliques de pods.
    - **StatefulSet Controller** : Pour les applications nécessitant un stockage persistant.
-
 5. **Services** :
    - Abstrait l'accès aux pods en fournissant une adresse IP stable.
-
 6. **Volumes** :
    - Fournit un stockage persistant pour les données des conteneurs.
-
 7. **Ingress** :
    - Gère les règles de routage HTTP et HTTPS pour exposer les services.
 
