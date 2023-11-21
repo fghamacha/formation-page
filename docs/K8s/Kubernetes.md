@@ -1,8 +1,8 @@
 # Débuter avec Kubernetes
 
-### Qu'est-ce que Kubernetes ?
+!!! note " Qu'est-ce que Kubernetes ?"
 
-Kubernetes, souvent appelé K8s, est un outil open-source conçu pour simplifier la gestion d'applications conteneurisées à grande échelle. Il automatise le déploiement, la mise à l'échelle et la gestion de ces applications, facilitant ainsi le travail des équipes de développement et des opérations.
+    Kubernetes, souvent appelé K8S, est un super outil open-source conçu par google pour simplifier la gestion d'applications conteneurisées à grande échelle. Il automatise le déploiement, la mise à l'échelle et la gestion de ces applications, facilitant ainsi le travail des équipes de Dev et Ops
 
 ### Composants principaux de Kubernetes :
 Kubernetes se compose de plusieurs composants clés, chacun jouant un rôle spécifique dans la gestion des applications conteneurisées :
