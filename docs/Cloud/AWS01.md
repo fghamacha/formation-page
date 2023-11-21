@@ -1,60 +1,34 @@
-# AWS : First Steps
-Ce tutoriel est une introduction au cloud AWS, il te permettra de te familiariser avec les concepts du cloud AWS, les services AWS, la sécurité, l'architecture, la tarification et le support.
+## 1. Qu’est-ce que AWS ?
+AWS, ou Amazon Web Services, est la plateforme de cloud computing la plus populaire et la plus utilisée au monde. Elle offre plus de 200 services différents, allant du stockage, du calcul, du réseau, de la base de données, de l’analyse, de l’intelligence artificielle, de la sécurité, de la blockchain, et bien plus encore. AWS permet aux entreprises et aux particuliers de créer et de gérer des applications dans le cloud, sans avoir à se soucier de l’infrastructure sous-jacente, de la maintenance, de la scalabilité, ou de la fiabilité.
 
-Il peut être utilisé pour préparer le passage de la certification "AWS Certified Cloud Practitioner"
+## 2. Histoire et origine
+AWS a été lancé en 2006 par Amazon, le géant du commerce électronique, comme une façon de rentabiliser son expertise en matière d’infrastructure informatique. Depuis lors, AWS a connu une croissance exponentielle, attirant des clients de tous les secteurs et de toutes les tailles, tels que Netflix, Airbnb, Spotify, NASA, la CIA, etc. AWS domine le marché du cloud computing, avec une part de marché de 32% au premier trimestre 2021, loin devant ses concurrents comme Microsoft Azure, Google Cloud Platform, ou Alibaba Cloud.
 
-### Module 0.1 : Les Modèles de déploiement pour le cloud computing
+## 3. Exemples d’utilisation
 
-Lors de la sélection d'une stratégie cloud, une entreprise doit tenir compte de facteurs tels que les composants d'application cloud requis, les outils de gestion des ressources préférés et les exigences de l'infrastructure informatique.
+AWS est utilisé pour une variété d’applications, telles que :
 
+- **Le streaming vidéo :** Netflix, Prime Video, Disney+, et d’autres services de streaming vidéo utilisent AWS pour héberger, transcoder, et diffuser leurs contenus à des millions d’utilisateurs dans le monde.
+- **Le commerce électronique :** Amazon, Zalando, Shopify, et d’autres plateformes de commerce électronique utilisent AWS pour gérer leurs catalogues, leurs commandes, leurs paiements, et leurs livraisons.
+- **Les réseaux sociaux :** Facebook, Twitter, Instagram, et d’autres réseaux sociaux utilisent AWS pour stocker, traiter, et analyser les données de leurs utilisateurs, ainsi que pour fournir des fonctionnalités comme le chat, la vidéo, ou la publicité.
+- **La santé :** Pfizer, Johnson & Johnson, Philips, et d’autres acteurs de la santé utilisent AWS pour accélérer la recherche, le développement, et la distribution de médicaments, de vaccins, et de dispositifs médicaux.
+- **L’éducation :** Coursera, Udemy, edX, et d’autres plateformes d’éducation en ligne utilisent AWS pour offrir des cours, des certifications, et des diplômes à des étudiants du monde entier.
+- **La finance :** Goldman Sachs, JPMorgan Chase, Visa, et d’autres institutions financières utilisent AWS pour gérer leurs transactions, leurs risques, leurs régulations, et leurs innovations.
 
+## 4. Avantages et inconvénients
 
-Les trois modèles de déploiement sont : Le cloud, On-premises et Hybrides.
+**AWS présente de nombreux avantages, tels que :**
 
+- **La flexibilité :** AWS permet aux utilisateurs de choisir parmi une variété d’options de tarification, de configuration, et de déploiement, en fonction de leurs besoins et de leur budget.
+- **La performance :** AWS offre une performance optimale, grâce à son réseau mondial de centres de données, de zones de disponibilité, et de points de présence.
+- **La sécurité :** AWS assure une sécurité de haut niveau, en respectant les normes et les réglementations les plus strictes, et en fournissant des outils et des services pour protéger les données et les ressources des utilisateurs.
+- **L’innovation :** AWS innove constamment, en lançant de nouveaux services et de nouvelles fonctionnalités, en s’appuyant sur les dernières technologies et les retours des clients.
 
+**AWS présente également quelques inconvénients, tels que :**
 
-#### A. Déploiement dans le Cloud
+- **La complexité :** AWS peut être difficile à apprendre et à maîtriser, en raison du nombre et de la diversité de ses services, de ses interfaces, et de ses documentations.
+Le coût : AWS peut être coûteux, si les utilisateurs ne font pas attention à leur consommation, à leur facturation, et à leur optimisation.
+- **La dépendance :** AWS peut créer une dépendance vis-à-vis d’Amazon, qui peut limiter la portabilité, la compatibilité, et la souveraineté des utilisateurs.
 
-
-- Exécuter toutes les parties de l'application dans le cloud.
-- Migrer les applications existantes vers le cloud.
-- Concevoir et créer de nouvelles applications dans le cloud.
-
-
-Dans un modèle de déploiement dans le cloud, il est possible de migrer des applications existantes vers le cloud, ou  concevoir et créer de nouvelles applications dans le cloud. Il est possible de créer ces applications sur une infrastructure de bas niveau qui nécessite que le personnel informatique les gère. il est également possible de les créer à l'aide de services de niveau supérieur qui réduisent les exigences de gestion, d'architecture et de mise à l'échelle de l'infrastructure principale.
-
-
-
-Par exemple, une entreprise peut créer une application composée de serveurs virtuels, de bases de données et de composants réseau entièrement basés sur le cloud.
-
-
-
-
-
-#### B. Déploiement On-premise
-
-- Déployer des ressources à l'aide d'outils de virtualisation et de gestion des ressources.
-- Augmenter l'utilisation des ressources en utilisant la gestion des applications et les technologies de virtualisation.
-
-Le déploiement On-Premise est également appelé déploiement de cloud privé. Dans ce modèle, les ressources sont déployées sur site à l'aide d'outils de virtualisation et de gestion des ressources.
-
-Par exemple, il est possible d'avoir des applications qui s'exécutent sur une technologie entièrement conservée dans le datacenter on-premise.
-
-#### C. Déploiement hybride
-
-- Connecter les ressources basées sur le cloud à l'infrastructure On-Premise.
-- Intégrer des ressources basées sur le cloud avec des applications informatiques existantes.
-
-
-Dans un déploiement hybride, les ressources basées sur le cloud sont connectées à l'infrastructure On-premise. il faut peut-être utiliser cette approche dans un certain nombre de situations. Par exemple, Quand des applications existantes qui sont mieux gérées On-premise, ou les réglementations gouvernementales exigent que l'entreprise conserve certainnes données On-premise.
-
-
-
-Par exemple, supposons qu'une entreprise souhaite utiliser des services cloud capables d'automatiser le traitement et l'analyse de données par lots. Cependant, l'entreprise dispose de plusieurs applications héritées qui sont plus adaptées sur site et ne seront pas migrées vers le cloud. Avec un déploiement hybride, l'entreprise serait en mesure de conserver les applications héritées sur site tout en bénéficiant des services de données et d'analyse qui s'exécutent dans le cloud.
-
-### Module 0.2 : Avantages du Cloud computing : 
-
-
-
-![Comming Soon](img/comingsoon.png)
-
+## Conclusion
+AWS est donc une plateforme de cloud computing incontournable, qui offre aux utilisateurs une multitude de possibilités pour créer et gérer des applications dans le cloud. AWS est utilisé par des millions de clients dans le monde, qui bénéficient de ses avantages en termes de coût, de performance, de sécurité, et d’innovation. AWS est également une opportunité pour les développeurs, les administrateurs, les architectes, et les autres professionnels du cloud, qui peuvent acquérir des compétences et des certifications reconnues dans le domaine.
